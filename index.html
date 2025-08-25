@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical to Code - Where Healthcare Meets Technology</title>
+    <meta name="description" content="Bridging clinical expertise with healthcare IT. Real insights from clinicians for IT leaders on EHR optimization, workflow automation, and digital health transformation.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Clinical to Code - Where Healthcare Meets Technology">
+    <meta property="og:description" content="Bridging clinical expertise with healthcare IT. Real insights from clinicians turned technologists.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #0052a3;
+            --secondary: #00a86b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --bg-light: #f8f9fa;
+            --border: #e5e7eb;
+            --white: #ffffff;
+            --shadow: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--white);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-light);
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+
+        /* Article Cards */
+        .articles-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .articles-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .article-category {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .article-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trending-list li:last-child {
+            border-bottom: none;
+        }
+
+        .trending-list a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .trending-list a:hover {
+            color: var(--primary);
+        }
+
+        /* Ad Space Placeholder */
+        .ad-space {
+            background: var(--bg-light);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 30px;
+            color: white;
+        }
+
+        .newsletter h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-size: 14px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 20px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                Clinical to Code
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#clinical-insights">Clinical Insights</a></li>
+                <li><a href="#ehr-reality">EHR Reality</a></li>
+                <li><a href="#workflow-tech">Workflow Tech</a></li>
+                <li><a href="#clinician-voices">Voices</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <button class="mobile-menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>From Bedside to Backend: Bridging Clinical Wisdom with IT Innovation</h1>
+        <p>Where nurses, doctors, and clinicians translate real-world healthcare challenges into technology solutions that actually work</p>
+        <div class="cta-buttons">
+            <a href="#latest" class="btn btn-primary">Read Clinical Perspectives</a>
+            <a href="#newsletter" class="btn btn-secondary">Join Our Community</a>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Clinical Contributors</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Years Clinical Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>Bridge</h3>
+                <p>Clinical-IT Gap</p>
+            </div>
+            <div class="stat-item">
+                <h3>Real</h3>
+                <p>Frontline Insights</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Articles Section -->
+        <section class="articles-section" id="latest">
+            <h2>Clinical Perspectives on Healthcare Technology</h2>
+            
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <div class="article-image">👩‍⚕️</div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Nurse's View</span>
+                            <span>5 min read</span>
+                            <span>2 hours ago</span>
+                        </div>
+                        <h3>Why Your EHR is Failing Nurses: A 20-Year ICU Veteran's Perspective</h3>
+                        <p>After two decades at the bedside, I've seen every EHR implementation mistake. Here's what IT leaders need to understand about nursing workflows before their next update.</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <div class="article-image">👨‍⚕️</div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Physician's Take</span>
+                            <span>7 min read</span>
+                            <span>5 hours ago</span>
+                        </div>
+                        <h3>From ER Doctor to Epic Builder: Why Clinical Experience Matters in IT</h3>
+                        <p>I traded my stethoscope for SQL queries. Here's how my emergency medicine background revolutionized our hospital's clinical decision support system.</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <div class="article-image">💊</div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Pharmacist's Insight</span>
+                            <span>6 min read</span>
+                            <span>1 day ago</span>
+                        </div>
+                        <h3>Medication Errors Your CPOE System Isn't Catching: A Clinical Pharmacist's Analysis</h3>
+                        <p>After reviewing 10,000+ medication orders, I've identified the critical gaps between how developers think prescribing works and how it actually happens.</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card">
+                    <div class="article-image">🏥</div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Clinical Workflow</span>
+                            <span>8 min read</span>
+                            <span>2 days ago</span>
+                        </div>
+                        <h3>The Hidden 47 Clicks: Mapping Real Clinical Workflows vs IT Assumptions</h3>
+                        <p>We shadowed clinicians for 100 hours and counted every click. The disconnect between designed and actual workflows will shock you.</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Ad Space Placeholder -->
+                <div class="ad-space">
+                    <p>Advertisement Space<br><small>Premium healthcare IT vendor placement</small></p>
+                </div>
+
+                <!-- Article 5 -->
+                <article class="article-card">
+                    <div class="article-image">🩺</div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Clinical Informatics</span>
+                            <span>5 min read</span>
+                            <span>3 days ago</span>
+                        </div>
+                        <h3>Why Clinicians Should Learn SQL: A Nurse Informaticist's Journey</h3>
+                        <p>From bedside nurse to data analyst - how learning to code transformed my ability to improve patient care through better data insights.</p>
+                        <a href="#" class="read-more">
+                            Read More 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Trending Topics -->
+            <div class="sidebar-widget">
+                <h3>🔥 Trending Topics</h3>
+                <ul class="trending-list">
+                    <li><a href="#">Ransomware Prevention Strategies</a></li>
+                    <li><a href="#">Telehealth Platform Selection Guide</a></li>
+                    <li><a href="#">HIPAA Audit Preparation Checklist</a></li>
+                    <li><a href="#">Clinical AI Governance Framework</a></li>
+                    <li><a href="#">Healthcare API Security Best Practices</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="sidebar-widget newsletter" id="newsletter">
+                <h3>📧 Weekly Intelligence Brief</h3>
+                <p>Get executive-level insights delivered to your inbox every Monday</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="sidebar-widget">
+                <div class="ad-space">
+                    <p>Sponsored Content<br><small>300x250 Display Ad</small></p>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="sidebar-widget">
+                <h3>📚 Free Resources</h3>
+                <ul class="trending-list">
+                    <li><a href="#">2024 Healthcare IT Salary Report</a></li>
+                    <li><a href="#">EHR Migration Checklist (PDF)</a></li>
+                    <li><a href="#">Cybersecurity Maturity Model</a></li>
+                    <li><a href="#">Vendor Evaluation Template</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About HealthTech Insights</h4>
+                <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Your trusted source for healthcare IT intelligence, serving CIOs, IT directors, and technology leaders in healthcare organizations worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Topics</h4>
+                <ul>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">EHR/EMR Systems</a></li>
+                    <li><a href="#">Cloud & Infrastructure</a></li>
+                    <li><a href="#">AI & Machine Learning</a></li>
+                    <li><a href="#">Compliance & Regulations</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Whitepapers</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Vendor Directory</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Advertise</a></li>
+                    <li><a href="#">Editorial Guidelines</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 HealthTech Insights. All rights reserved. | Empowering Healthcare IT Leaders</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '70px';
+            navMenu.style.left = '0';
+            navMenu.style.right = '0';
+            navMenu.style.background = 'white';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.padding = '20px';
+            navMenu.style.boxShadow = '0 10px 40px rgba(0,0,0,0.1)';
+        });
+
+        // Newsletter Form Handler
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! Check your email for confirmation.');
+            this.reset();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Page Performance Monitoring (for future ad optimization)
+        window.addEventListener('load', function() {
+            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            console.log('Page Load Time:', loadTime + 'ms');
+            
+            // Track Core Web Vitals (important for ad revenue)
+            if ('PerformanceObserver' in window) {
+                // Largest Contentful Paint
+                new PerformanceObserver((entryList) => {
+                    for (const entry of entryList.getEntries()) {
+                        console.log('LCP:', entry.renderTime || entry.loadTime);
+                    }
+                }).observe({type: 'largest-contentful-paint', buffered: true});
+                
+                // First Input Delay
+                new PerformanceObserver((entryList) => {
+                    for (const entry of entryList.getEntries()) {
+                        console.log('FID:', entry.processingStart - entry.startTime);
+                    }
+                }).observe({type: 'first-input', buffered: true});
+            }
+        });
+
+        // Simulated view counter (replace with real analytics)
+        let viewCount = localStorage.getItem('pageViews') || 0;
+        viewCount++;
+        localStorage.setItem('pageViews', viewCount);
+        console.log('Page Views:', viewCount);
+    </script>
+</body>
+</html>
