@@ -1,14 +1,14 @@
-import './globals.css'
-
 export const metadata = {
-  title: 'Clinical to Code - Where Healthcare Meets Technology',
-  description: 'Bridging clinical expertise with healthcare IT',
+  title: 'Clinical to Code',
+  description: 'Where Healthcare Meets Technology',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body style={{ margin: 0, padding: 0 }}>
+        {children}
+      </body>
     </html>
   )
 }
