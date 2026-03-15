@@ -1,7 +1,7 @@
 ---
 phase: 1
 slug: foundation
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-03-15
@@ -43,8 +43,21 @@ Declared values (must be multiples of 4):
 
 Exceptions:
 - Nav height: 72px (from `index.html` nav — carries forward as-is; not a spacing token, a fixed layout dimension)
-- Touch targets: 44px minimum height for all interactive elements (accessibility floor; applies to buttons and nav links)
+- Touch targets: 48px minimum height for all interactive elements (accessibility floor; applies to buttons and nav links)
 - Content max-width: 1200px (layout constraint, not a spacing token)
+
+### Approved Arbitrary Tailwind Values
+
+All `[value]` syntax in this spec is pre-approved. No other arbitrary values may be added without updating this list.
+
+| Value | Location | Justification |
+|-------|----------|---------------|
+| `py-[80px]` | Hero zone | 80px = 20 × 4; standard Tailwind scale has no `py-20` in v4 config — explicit px clarifies source |
+| `max-w-[1200px]` | Content area | Layout constraint from `index.html`; no semantic token name for max-width |
+| `bg-[#1a1a1a]` | Footer | Exact nav/footer color from `index.html` `:root` — not in the color token set (neutral, no semantic name needed) |
+| `pt-[64px]` | Footer | 64px = 16 × 4; maps to `3xl` token but used inline to keep layout table self-documenting |
+| `pb-[32px]` | Footer | 32px = 8 × 4; maps to `xl` token but used inline to keep layout table self-documenting |
+| `mt-[80px]` | Footer | 80px = 20 × 4; above-spacing-scale but below page-level; no `3.5xl` token exists |
 
 ---
 
@@ -102,7 +115,6 @@ Source: `index.html` `:root` CSS variables and CONTEXT.md locked decisions.
 --color-primary: #0066cc
 --color-primary-dark: #0052a3
 --color-secondary: #00a86b
---color-secondary-dark: #008055
 --color-hero-from: #667eea
 --color-hero-to: #764ba2
 ```
@@ -112,6 +124,26 @@ Source: `index.html` `:root` CSS variables and CONTEXT.md locked decisions.
 ## Copywriting Contract
 
 Phase 1 is infrastructure-only — no end-user features. The only user-visible surface is the skeleton homepage that proves the deployment works.
+
+### Tone Rules
+
+| Rule | Specification |
+|------|---------------|
+| Voice | Professional and direct. Peer-to-peer, not vendor-to-customer. |
+| Audience | Clinicians and healthcare IT professionals — assume domain knowledge, no over-explaining. |
+| Sentence length | Short. Prefer one idea per sentence. |
+| Reading level | Plain English. No jargon unless it is clinical/IT terminology the audience already uses. |
+| Prohibited words | "revolutionary", "game-changer", "disrupting", "empower", "leverage", "seamless", "world-class", "cutting-edge", "innovative" |
+| Numbers | Use numerals for counts and stats (e.g. "3 articles", not "three articles"). |
+
+### CTA Formatting Rules
+
+- Primary CTA: Verb phrase, title case, ≤ 3 words. Examples: "Explore Articles", "Read More".
+- Secondary CTA: Verb phrase, title case, ≤ 4 words. Examples: "Join the Community".
+- No exclamation marks on CTAs.
+- No first-person possessive ("My Articles" → "Your Articles" or just "Articles").
+
+### Copy Table
 
 | Element | Copy |
 |---------|------|
@@ -151,7 +183,7 @@ The skeleton homepage must match the visual structure of `index.html` sufficient
 | Nav | Sticky, white background, 72px height, `border-b`, logo left + nav links right |
 | Hero | Full-width, `bg-gradient-to-br from-hero-from to-hero-to`, `py-[80px]`, centered text + 2 CTAs |
 | Content area | `max-w-[1200px] mx-auto px-5`, two-column grid (`1fr 300px`), `gap-10` |
-| Footer | Dark background (`bg-[#1a1a1a]`), white text, `pt-[60px] pb-[32px] mt-[80px]` |
+| Footer | Dark background (`bg-[#1a1a1a]`), white text, `pt-[64px] pb-[32px] mt-[80px]` |
 
 ---
 
@@ -167,14 +199,14 @@ No third-party registries declared. No vetting gate required.
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved 2026-03-15
 
 ---
 
