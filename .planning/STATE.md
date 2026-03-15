@@ -10,7 +10,7 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | Foundation | Planned — ready to execute |
+| 1 | Foundation | ✅ Complete |
 | 2 | Auth | Not Started |
 | 3 | Content | Not Started |
 | 4 | Forum | Not Started |
@@ -19,7 +19,7 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 1 — Foundation (planned, approved, ready to execute)
+Phase 2 — Auth (not started)
 
 **Artifacts:**
 - `.planning/phases/01-foundation/01-PLAN.md` — 14 tasks, 7 waves (approved)
