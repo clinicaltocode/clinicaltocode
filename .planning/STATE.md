@@ -10,7 +10,7 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | Foundation | Not Started |
+| 1 | Foundation | Planned — ready to execute |
 | 2 | Auth | Not Started |
 | 3 | Content | Not Started |
 | 4 | Forum | Not Started |
@@ -19,7 +19,14 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-None — ready to begin Phase 1
+Phase 1 — Foundation (planned, approved, ready to execute)
+
+**Artifacts:**
+- `.planning/phases/01-foundation/01-PLAN.md` — 14 tasks, 7 waves (approved)
+- `.planning/phases/01-foundation/01-UI-SPEC.md` — UI design contract (approved)
+- `.planning/phases/01-foundation/01-VALIDATION.md` — vitest verification map
+- `.planning/phases/01-foundation/01-CONTEXT.md` — implementation decisions
+- `.planning/phases/01-foundation/01-RESEARCH.md` — setup sequence + stack details
 
 ## Decisions Log
 
