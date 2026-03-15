@@ -1,0 +1,4 @@
+-- Phase 1 Foundation: baseline migration
+-- Establishes the migration chain. No application tables yet.
+-- Forum schema will be added in Phase 4.
+-- Auth schema is managed by Supabase Auth (auth.users) — not in public migrations.
