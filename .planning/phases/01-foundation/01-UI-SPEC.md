@@ -57,15 +57,15 @@ Source: `index.html` CSS and CONTEXT.md decision to carry forward the system fon
 | Body | 16px | 400 (regular) | 1.6 |
 | Label | 14px | 400 (regular) | 1.5 |
 | Heading | 22px | 600 (semibold) | 1.4 |
-| Display | 48px | 700 (bold) | 1.2 |
+| Display | 48px | 600 (semibold) | 1.2 |
 
 **Notes:**
 - Body line-height 1.6 matches `index.html` `body { line-height: 1.6 }`
 - 14px label is used for article meta, footer copy, stat descriptions, and form helper text
 - 22px heading covers article card titles and sidebar widget headings
-- 48px display is the hero `h1` — scales to 32px at mobile breakpoint (≤768px) per `index.html` responsive rules
+- 48px display is the hero `h1` — scales to 32px at mobile breakpoint (≤768px) per `index.html` responsive rules; 600 semibold is sufficient on the hero gradient background
 - Section headings (`h2` on article index) are 32px at semibold — treated as a heading variant, not a separate type role
-- Font weights used: 400 regular, 600 semibold, 700 bold (bold reserved for display/logo only)
+- Font weights used: 400 regular, 600 semibold (2 weights only)
 
 ---
 
@@ -142,6 +142,8 @@ Minimal set needed to verify the deployment. All from shadcn official registry.
 ---
 
 ## Layout Contract (Skeleton Homepage)
+
+**Primary focal point:** hero h1 display text.
 
 The skeleton homepage must match the visual structure of `index.html` sufficiently to confirm the stack is working. Not a pixel-perfect rebuild — just structural validation.
 
