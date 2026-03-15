@@ -96,34 +96,34 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase ? | Pending |
-| AUTH-01 | Phase ? | Pending |
-| AUTH-02 | Phase ? | Pending |
-| AUTH-03 | Phase ? | Pending |
-| CONT-01 | Phase ? | Pending |
-| CONT-02 | Phase ? | Pending |
-| CONT-03 | Phase ? | Pending |
-| CONT-04 | Phase ? | Pending |
-| FORUM-01 | Phase ? | Pending |
-| FORUM-02 | Phase ? | Pending |
-| FORUM-03 | Phase ? | Pending |
-| FORUM-04 | Phase ? | Pending |
-| FORUM-05 | Phase ? | Pending |
-| FORUM-06 | Phase ? | Pending |
-| PROF-01 | Phase ? | Pending |
-| PROF-02 | Phase ? | Pending |
-| PROF-03 | Phase ? | Pending |
-| MOD-01 | Phase ? | Pending |
-| MOD-02 | Phase ? | Pending |
-| MOD-03 | Phase ? | Pending |
-| MOD-04 | Phase ? | Pending |
-| MONEY-01 | Phase ? | Pending |
-| MONEY-02 | Phase ? | Pending |
+| INFRA-01 | Phase 1 | Pending |
+| AUTH-01 | Phase 2 | Pending |
+| AUTH-02 | Phase 2 | Pending |
+| AUTH-03 | Phase 2 | Pending |
+| CONT-01 | Phase 3 | Pending |
+| CONT-02 | Phase 3 | Pending |
+| CONT-03 | Phase 3 | Pending |
+| CONT-04 | Phase 3 | Pending |
+| FORUM-01 | Phase 4 | Pending |
+| FORUM-02 | Phase 4 | Pending |
+| FORUM-03 | Phase 4 | Pending |
+| FORUM-04 | Phase 4 | Pending |
+| FORUM-05 | Phase 4 | Pending |
+| FORUM-06 | Phase 4 | Pending |
+| PROF-01 | Phase 5 | Pending |
+| PROF-02 | Phase 5 | Pending |
+| PROF-03 | Phase 5 | Pending |
+| MOD-01 | Phase 6 | Pending |
+| MOD-02 | Phase 6 | Pending |
+| MOD-03 | Phase 6 | Pending |
+| MOD-04 | Phase 6 | Pending |
+| MONEY-01 | Phase 7 | Pending |
+| MONEY-02 | Phase 7 | Pending |
 
 **Coverage:**
 - v1 requirements: 23 total
-- Mapped to phases: 0
-- Unmapped: 23 ⚠️
+- Mapped to phases: 23
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-15*
