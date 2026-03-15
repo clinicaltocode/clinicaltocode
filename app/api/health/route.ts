@@ -13,7 +13,8 @@ export async function GET() {
     const isConnected =
       !error ||
       error.code === 'PGRST116' ||
-      (error.message?.includes('does not exist') ?? false)
+      (error.message?.includes('does not exist') ?? false) ||
+      (error.message?.includes('Could not find') ?? false)
     supabaseStatus = isConnected ? 'ok' : 'error'
     detail = error?.message
   } catch (err) {
