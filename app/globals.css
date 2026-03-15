@@ -5,18 +5,18 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Brand colors — sourced from index.html :root */
-  --color-primary: #0066cc;
-  --color-primary-dark: #0052a3;
-  --color-secondary: #00a86b;
-
-  /* Hero gradient stops */
+  /* Hero gradient stops — not in shadcn system, direct tokens */
   --color-hero-from: #667eea;
   --color-hero-to: #764ba2;
 
-  /* Typography */
+  /* System font stack — overrides shadcn's default (no Google Fonts) */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Ensure primary-dark is available for hover states */
+:root {
+  --primary-dark: #0052a3;
 }
 
 body {
@@ -33,10 +33,11 @@ body {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  /* Brand overrides — maps shadcn system to Clinical to Code brand */
+  --primary: #0066cc;
+  --primary-foreground: #ffffff;
+  --secondary: #00a86b;
+  --secondary-foreground: #ffffff;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
