@@ -42,7 +42,7 @@ Declared values (must be multiples of 4):
 | 3xl | 64px | Page-level spacing |
 
 Exceptions:
-- Nav height: 70px (from `index.html` nav — carries forward as-is; not a spacing token, a fixed layout dimension)
+- Nav height: 72px (from `index.html` nav — carries forward as-is; not a spacing token, a fixed layout dimension)
 - Touch targets: 44px minimum height for all interactive elements (accessibility floor; applies to buttons and nav links)
 - Content max-width: 1200px (layout constraint, not a spacing token)
 
@@ -56,15 +56,14 @@ Source: `index.html` CSS and CONTEXT.md decision to carry forward the system fon
 |------|------|--------|-------------|
 | Body | 16px | 400 (regular) | 1.6 |
 | Label | 14px | 400 (regular) | 1.5 |
-| Heading | 22px | 600 (semibold) | 1.4 |
+| Heading | 32px | 600 (semibold) | 1.4 |
 | Display | 48px | 600 (semibold) | 1.2 |
 
 **Notes:**
 - Body line-height 1.6 matches `index.html` `body { line-height: 1.6 }`
 - 14px label is used for article meta, footer copy, stat descriptions, and form helper text
-- 22px heading covers article card titles and sidebar widget headings
+- 32px heading covers article card titles, sidebar widget headings, and section headings (`h2` on article index)
 - 48px display is the hero `h1` — scales to 32px at mobile breakpoint (≤768px) per `index.html` responsive rules; 600 semibold is sufficient on the hero gradient background
-- Section headings (`h2` on article index) are 32px at semibold — treated as a heading variant, not a separate type role
 - Font weights used: 400 regular, 600 semibold (2 weights only)
 
 ---
@@ -149,10 +148,10 @@ The skeleton homepage must match the visual structure of `index.html` sufficient
 
 | Zone | Implementation |
 |------|----------------|
-| Nav | Sticky, white background, 70px height, `border-b`, logo left + nav links right |
+| Nav | Sticky, white background, 72px height, `border-b`, logo left + nav links right |
 | Hero | Full-width, `bg-gradient-to-br from-hero-from to-hero-to`, `py-[80px]`, centered text + 2 CTAs |
 | Content area | `max-w-[1200px] mx-auto px-5`, two-column grid (`1fr 300px`), `gap-10` |
-| Footer | Dark background (`bg-[#1a1a1a]`), white text, `pt-[60px] pb-[30px] mt-[80px]` |
+| Footer | Dark background (`bg-[#1a1a1a]`), white text, `pt-[60px] pb-[32px] mt-[80px]` |
 
 ---
 
