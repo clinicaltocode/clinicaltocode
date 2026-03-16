@@ -1,9 +1,9 @@
 ---
 phase: 2
 slug: auth
-status: draft
-nyquist_compliant: false
-wave_0_complete: false
+status: complete
+nyquist_compliant: true
+wave_0_complete: true
 created: 2026-03-15
 ---
 
@@ -38,16 +38,16 @@ created: 2026-03-15
 
 | Task ID | Wave | Requirement | Test Type | Automated Command | Status |
 |---------|------|-------------|-----------|-------------------|--------|
-| 2-02-01 | 0 | AUTH-01 | automated | `npx vitest run --reporter=verbose` | ⬜ pending |
-| 2-02-02 | 1 | AUTH-01 | automated | `npx next build` exits 0 | ⬜ pending |
-| 2-02-03 | 1 | AUTH-01 | automated | `npx tsc --noEmit` | ⬜ pending |
-| 2-02-04 | 2 | AUTH-01/02 | automated | `npx next build` exits 0 | ⬜ pending |
-| 2-02-05 | 2 | AUTH-03 | automated | `npx tsc --noEmit` | ⬜ pending |
-| 2-02-06 | 3 | AUTH-02 | manual | Sign up → check email arrives | ⬜ pending |
-| 2-02-07 | 3 | AUTH-02 | manual | Click verification link → confirm page | ⬜ pending |
-| 2-02-08 | 3 | AUTH-03 | manual | Login → refresh → still authenticated | ⬜ pending |
-| 2-02-09 | 3 | AUTH-02 | manual | Unverified user → /forum → blocked | ⬜ pending |
-| 2-02-10 | 3 | AUTH-01 | manual | Sign out → protected route → redirect to login | ⬜ pending |
+| 2-02-01 | 0 | AUTH-01 | automated | `npx vitest run --reporter=verbose` | ✅ green |
+| 2-02-02 | 1 | AUTH-01 | automated | `npx next build` exits 0 | ✅ green |
+| 2-02-03 | 1 | AUTH-01 | automated | `npx tsc --noEmit` | ✅ green |
+| 2-02-04 | 2 | AUTH-01/02 | automated | `npx next build` exits 0 | ✅ green |
+| 2-02-05 | 2 | AUTH-03 | automated | `npx tsc --noEmit` | ✅ green |
+| 2-02-06 | 3 | AUTH-02 | manual | Sign up → check email arrives | ✅ green |
+| 2-02-07 | 3 | AUTH-02 | manual | Click verification link → confirm page | ✅ green |
+| 2-02-08 | 3 | AUTH-03 | manual | Login → refresh → still authenticated | ✅ green |
+| 2-02-09 | 3 | AUTH-02 | manual | Unverified user → /forum → blocked | ✅ green |
+| 2-02-10 | 3 | AUTH-01 | manual | Sign out → protected route → redirect to login | ✅ green |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -82,4 +82,4 @@ created: 2026-03-15
 - [ ] Feedback latency < 15s
 - [ ] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** complete — 2026-03-16
