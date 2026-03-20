@@ -15,10 +15,10 @@
 
 ### Content
 
-- [ ] **CONT-01**: Admin can create, edit, and publish articles via Sanity CMS Studio editor UI (no code deploy required)
-- [ ] **CONT-02**: Visitor can browse article index page with category filtering and pagination
-- [ ] **CONT-03**: Visitor can read individual article pages showing title, author name + credential, read time, category, and tags
-- [ ] **CONT-04**: Each published article automatically spawns a linked forum discussion thread in the appropriate category
+- [x] **CONT-01**: Admin can create, edit, and publish articles via Sanity CMS Studio editor UI (no code deploy required)
+- [x] **CONT-02**: Visitor can browse article index page with category filtering and pagination
+- [x] **CONT-03**: Visitor can read individual article pages showing title, author name + credential, read time, category, and tags
+- [x] **CONT-04**: Each published article automatically spawns a linked forum discussion thread in the appropriate category
 
 ### Forum
 
@@ -100,10 +100,10 @@
 | AUTH-01 | Phase 2 | Pending |
 | AUTH-02 | Phase 2 | Pending |
 | AUTH-03 | Phase 2 | Pending |
-| CONT-01 | Phase 3 | Pending |
-| CONT-02 | Phase 3 | Pending |
-| CONT-03 | Phase 3 | Pending |
-| CONT-04 | Phase 3 | Pending |
+| CONT-01 | Phase 3 | Complete |
+| CONT-02 | Phase 3 | Complete |
+| CONT-03 | Phase 3 | Complete |
+| CONT-04 | Phase 3 | Complete |
 | FORUM-01 | Phase 4 | Pending |
 | FORUM-02 | Phase 4 | Pending |
 | FORUM-03 | Phase 4 | Pending |
