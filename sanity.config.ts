@@ -1,14 +1,15 @@
 import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { structureTool } from 'sanity/structure'
+import { visionTool } from '@sanity/vision'
+import { article, author, category } from './sanity/schemas'
 
 export default defineConfig({
-  name: 'clinicaltocode',
-  title: 'Clinical to Code',
+  name: 'default',
+  title: 'ClinicalToCode',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  plugins: [deskTool()],
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
+  plugins: [structureTool(), visionTool()],
   schema: {
-    types: [],
-    // Article, author, and category schemas added in Phase 3
+    types: [article, author, category],
   },
 })
