@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button-variants'
 import { ThreadCard } from '@/components/forum/thread-card'
 import { getCategories, getThreadsByCategory } from '@/lib/forum/queries'
 

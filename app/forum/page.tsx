@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button-variants'
 import { getCategories } from '@/lib/forum/queries'
 
 export const metadata = {
