@@ -98,6 +98,17 @@ Plans:
 ### Phase 6: Moderation
 **Goal:** Equip the admin to handle reported content, remove harmful posts, ban bad actors, and publish community guidelines before any public launch.
 **Requirements:** MOD-01, MOD-02, MOD-03, MOD-04
+**Plans:** 7 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Wave 0 test stubs (moderation.test.ts) + DB migration (content_reports table + RLS + admin update policies) + middleware admin guard
+- [ ] 06-02-PLAN.md — Moderation data layer: lib/moderation/types.ts + actions.ts (submitReport, markReviewed, softDeleteContent, banUser, unbanUser, restoreContent, permanentDeleteContent)
+- [ ] 06-03-PLAN.md — Report UI components: ReportButton + ReportModal + GuidelinesBanner
+- [ ] 06-04-PLAN.md — /community-guidelines static page (all 5 required sections)
+- [ ] 06-05-PLAN.md — Forum integration: PostItem soft-delete placeholder + ReportButton, ThreadCard ReportButton, GuidelinesBanner in /forum, is_removed guard in thread detail
+- [ ] 06-06-PLAN.md — Admin panel: layout + /admin dashboard + /admin/reports + /admin/users + /admin/content
+- [ ] 06-07-PLAN.md — Full test suite run + human-verify checkpoint
+
 **Success Criteria:**
 1. Any authenticated user can click a report button on a post or thread, submit a reason, and the report is recorded in the database.
 2. The admin can view a queue of all pending reports at `/admin/reports` and mark individual reports as reviewed.
