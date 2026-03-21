@@ -51,7 +51,8 @@ export async function middleware(request: NextRequest) {
     !user &&
     (pathname.startsWith('/profile') ||
       pathname.startsWith('/forum/new') ||
-      pathname.startsWith('/forum/bookmarks'))
+      pathname.startsWith('/forum/bookmarks') ||
+      pathname.startsWith('/settings'))
   ) {
     const url = request.nextUrl.clone()
     url.pathname = '/auth/login'
@@ -63,7 +64,9 @@ export async function middleware(request: NextRequest) {
   if (
     user &&
     !user.email_confirmed_at &&
-    (pathname.startsWith('/profile') || pathname.startsWith('/forum/new'))
+    (pathname.startsWith('/profile') ||
+      pathname.startsWith('/forum/new') ||
+      pathname.startsWith('/settings'))
   ) {
     const url = request.nextUrl.clone()
     url.pathname = '/auth/verify-email'
