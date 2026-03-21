@@ -82,11 +82,11 @@ Plans:
 **Plans:** 5/5 plans complete
 
 Plans:
-- [ ] 05-01-PLAN.md — Wave 0 test stubs + DB migration (Storage bucket, username backfill, trigger update) + middleware /settings guard
-- [ ] 05-02-PLAN.md — Profile data layer: lib/profile/types.ts, queries.ts, actions.ts
-- [ ] 05-03-PLAN.md — shadcn installs (Avatar, Select, Input) + profile UI components (CredentialBadge, CredentialSelect, AvatarUpload, ProfilePostHistory)
-- [ ] 05-04-PLAN.md — Profile pages: /profile/[username] public page + /settings/profile settings page + settings form
-- [ ] 05-05-PLAN.md — Forum badge propagation: ThreadCard + PostItem credential display + batch getProfilesByIds + human-verify checkpoint
+- [x] 05-01-PLAN.md — Wave 0 test stubs + DB migration (Storage bucket, username backfill, trigger update) + middleware /settings guard (completed 2026-03-21)
+- [x] 05-02-PLAN.md — Profile data layer: lib/profile/types.ts, queries.ts, actions.ts (completed 2026-03-21)
+- [x] 05-03-PLAN.md — shadcn installs (Avatar, Select, Input) + profile UI components (CredentialBadge, CredentialSelect, AvatarUpload, ProfilePostHistory) (completed 2026-03-21)
+- [x] 05-04-PLAN.md — Profile pages: /profile/[username] public page + /settings/profile settings page + settings form (completed 2026-03-21)
+- [x] 05-05-PLAN.md — Forum badge propagation: ThreadCard + PostItem credential display + batch getProfilesByIds + human-verify checkpoint (completed 2026-03-21)
 
 **Success Criteria:**
 1. Navigating to `/profile/[username]` shows that user's username, join date, credential badge, and paginated post history.

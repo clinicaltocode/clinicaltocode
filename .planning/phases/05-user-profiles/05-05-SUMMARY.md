@@ -60,7 +60,7 @@ completed: 2026-03-21
 - **Duration:** 12 min
 - **Started:** 2026-03-21T17:38:00Z
 - **Completed:** 2026-03-21T17:50:00Z
-- **Tasks:** 2 of 3 (Task 3 is checkpoint:human-verify — pending)
+- **Tasks:** 3 of 3
 - **Files modified:** 5
 
 ## Accomplishments
@@ -76,9 +76,9 @@ Each task was committed atomically:
 
 1. **Task 1: Update ThreadCard and PostItem to accept and display author + credential** - `36df2f6` (feat)
 2. **Task 2: Add batch profile fetch to thread list and thread detail pages** - `4e1fc95` (feat)
-3. **Task 3: Human verification checkpoint** - pending
+3. **Task 3: Human verification checkpoint** - approved (all 9 verification flows passed)
 
-**Plan metadata:** TBD (docs: complete plan)
+**Plan metadata:** `15c26a8` (docs: complete forum author identity propagation plan)
 
 ## Files Created/Modified
 - `lib/forum/types.ts` - Added AuthorMeta interface
@@ -103,8 +103,8 @@ None
 None - no external service configuration required.
 
 ## Next Phase Readiness
-- Phase 5 User Profiles is feature-complete pending human verification (Task 3 checkpoint)
-- After checkpoint approval: Phase 6 Moderation can begin
+- Phase 5 User Profiles is feature-complete — all 9 human verification flows passed
+- Phase 6 Moderation can begin: profile data layer and credential display are fully in place
 - Forum author identity fully wired: credential badges appear next to all posts and thread cards
 
 ---

@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: Completed 05-user-profiles Plan 05 (checkpoint:human-verify pending)
-last_updated: "2026-03-21T17:50:00Z"
+status: in-progress
+stopped_at: Completed 05-user-profiles Plan 05 — Phase 5 complete, human-verify approved
+last_updated: "2026-03-21T18:10:00Z"
 progress:
   total_phases: 7
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 14
-  completed_plans: 12
+  completed_plans: 13
 ---
 
 # Project State
@@ -18,7 +18,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Clinicians and healthcare IT professionals have a trusted place to both read real frontline perspectives AND have meaningful discussions with each other.
-**Current focus:** Phase 5 — User Profiles (Plan 05 of 5 complete — human-verify checkpoint pending)
+**Current focus:** Phase 6 — Moderation (Phase 5 User Profiles complete)
 
 ## Roadmap Status
 
@@ -28,15 +28,15 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 2 | Auth | ✅ Complete |
 | 3 | Content | ✅ Plan 03 Complete (Wave 7 manual verification pending) |
 | 4 | Forum | ✅ Complete (all 6 plans, all FORUM requirements verified) |
-| 5 | User Profiles | In Progress (Plan 05 of 5 complete — human-verify checkpoint pending) |
+| 5 | User Profiles | ✅ Complete (all 5 plans, all PROF requirements verified) |
 | 6 | Moderation | Not Started |
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 5 — User Profiles (Plan 05 of 5 complete — human-verify checkpoint pending)
+Phase 6 — Moderation (next phase to begin)
 
-**Last session:** 2026-03-21T17:50:00Z
-**Stopped at:** Completed 05-user-profiles Plan 05 (checkpoint:human-verify pending)
+**Last session:** 2026-03-21T18:10:00Z
+**Stopped at:** Completed 05-user-profiles Plan 05 — all 9 human-verify flows approved
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -61,7 +61,7 @@ Phase 5 — User Profiles (Plan 05 of 5 complete — human-verify checkpoint pen
 - `.planning/phases/05-user-profiles/05-03-SUMMARY.md` — execution summary
 - `.planning/phases/05-user-profiles/05-04-PLAN.md` — 2 tasks complete
 - `.planning/phases/05-user-profiles/05-04-SUMMARY.md` — execution summary
-- `.planning/phases/05-user-profiles/05-05-PLAN.md` — 2 tasks complete (Task 3 is human-verify checkpoint)
+- `.planning/phases/05-user-profiles/05-05-PLAN.md` — 3 tasks complete (incl. human-verify approved)
 - `.planning/phases/05-user-profiles/05-05-SUMMARY.md` — execution summary
 
 ## Decisions Log
