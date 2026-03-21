@@ -22,12 +22,12 @@
 
 ### Forum
 
-- [ ] **FORUM-01**: Visitor can browse and read all forum categories and threads without an account
-- [ ] **FORUM-02**: Authenticated verified user can create a new thread in a forum category
-- [ ] **FORUM-03**: Authenticated verified user can reply to a thread (minimum 2-level nesting)
-- [ ] **FORUM-04**: Authenticated user can upvote a post or reply (upvote only, no downvote)
-- [ ] **FORUM-05**: Forum is organized into clinical specialty categories (e.g. Nursing, EHR, Clinical Informatics, Pharmacy, Physician Perspectives)
-- [ ] **FORUM-06**: Authenticated user can bookmark a thread and view their saved threads
+- [x] **FORUM-01**: Visitor can browse and read all forum categories and threads without an account
+- [x] **FORUM-02**: Authenticated verified user can create a new thread in a forum category
+- [x] **FORUM-03**: Authenticated verified user can reply to a thread (minimum 2-level nesting)
+- [x] **FORUM-04**: Authenticated user can upvote a post or reply (upvote only, no downvote)
+- [x] **FORUM-05**: Forum is organized into clinical specialty categories (e.g. Nursing, EHR, Clinical Informatics, Pharmacy, Physician Perspectives)
+- [x] **FORUM-06**: Authenticated user can bookmark a thread and view their saved threads
 
 ### User Profiles
 
@@ -104,12 +104,12 @@
 | CONT-02 | Phase 3 | Complete |
 | CONT-03 | Phase 3 | Complete |
 | CONT-04 | Phase 3 | Complete |
-| FORUM-01 | Phase 4 | Pending |
-| FORUM-02 | Phase 4 | Pending |
-| FORUM-03 | Phase 4 | Pending |
-| FORUM-04 | Phase 4 | Pending |
-| FORUM-05 | Phase 4 | Pending |
-| FORUM-06 | Phase 4 | Pending |
+| FORUM-01 | Phase 4 | Complete |
+| FORUM-02 | Phase 4 | Complete |
+| FORUM-03 | Phase 4 | Complete |
+| FORUM-04 | Phase 4 | Complete |
+| FORUM-05 | Phase 4 | Complete |
+| FORUM-06 | Phase 4 | Complete |
 | PROF-01 | Phase 5 | Pending |
 | PROF-02 | Phase 5 | Pending |
 | PROF-03 | Phase 5 | Pending |

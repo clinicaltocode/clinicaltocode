@@ -9,7 +9,7 @@
 | 1 | Foundation | Scaffold the full tech stack and deploy a working skeleton to production | INFRA-01 |
 | 2 | Auth | Build all authentication flows with verified email sessions | AUTH-01, AUTH-02, AUTH-03 |
 | 3 | 1/1 | Complete   | 2026-03-20 |
-| 4 | Forum | Build the full Reddit-style discussion system with categories, threads, replies, votes, and bookmarks | FORUM-01, FORUM-02, FORUM-03, FORUM-04, FORUM-05, FORUM-06 |
+| 4 | 1/6 | In Progress|  |
 | 5 | User Profiles | Create public profile pages and user settings for credentials and avatar | PROF-01, PROF-02, PROF-03 |
 | 6 | Moderation | Give admin tools to moderate content and users, and publish community guidelines | MOD-01, MOD-02, MOD-03, MOD-04 |
 | 7 | Monetization | Wire newsletter signup and reserve AdSense ad slots | MONEY-01, MONEY-02 |
@@ -56,7 +56,7 @@
 ### Phase 4: Forum
 **Goal:** Build the full Reddit-style community discussion system — public browsing, authenticated thread creation and replies with 2-level nesting, upvotes, clinical specialty categories, and bookmarks.
 **Requirements:** FORUM-01, FORUM-02, FORUM-03, FORUM-04, FORUM-05, FORUM-06
-**Plans:** 6 plans
+**Plans:** 1/6 plans executed
 
 Plans:
 - [ ] 04-01-PLAN.md — Wave 0 test stubs + date-fns install + Phase 4 database migration (forum_posts, forum_votes, forum_bookmarks, ALTER forum_threads, toggle_vote RPC, RLS)
