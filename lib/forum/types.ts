@@ -36,8 +36,6 @@ export interface ForumPost {
   is_removed: boolean
   created_at: string
   updated_at: string
-  // Joined field from user_profiles (present in thread detail query)
-  user_profiles?: { username: string | null; credential_badge: string | null } | null
 }
 
 export interface ForumBookmarkThread {

@@ -49,7 +49,7 @@ export async function getThreadWithPosts(threadSlug: string): Promise<ThreadWith
   // 2. Top-level posts (parent_post_id IS NULL, depth = 0)
   const { data: topPosts } = await supabase
     .from('forum_posts')
-    .select('*, user_profiles(username, credential_badge)')
+    .select('*')
     .eq('thread_id', thread.id)
     .is('parent_post_id', null)
     .eq('is_removed', false)
@@ -61,7 +61,7 @@ export async function getThreadWithPosts(threadSlug: string): Promise<ThreadWith
   const { data: nestedPosts } = topPostIds.length
     ? await supabase
         .from('forum_posts')
-        .select('*, user_profiles(username, credential_badge)')
+        .select('*')
         .in('parent_post_id', topPostIds)
         .eq('is_removed', false)
         .order('created_at', { ascending: true })
