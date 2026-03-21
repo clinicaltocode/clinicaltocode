@@ -56,6 +56,16 @@
 ### Phase 4: Forum
 **Goal:** Build the full Reddit-style community discussion system — public browsing, authenticated thread creation and replies with 2-level nesting, upvotes, clinical specialty categories, and bookmarks.
 **Requirements:** FORUM-01, FORUM-02, FORUM-03, FORUM-04, FORUM-05, FORUM-06
+**Plans:** 6 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Wave 0 test stubs + date-fns install + Phase 4 database migration (forum_posts, forum_votes, forum_bookmarks, ALTER forum_threads, toggle_vote RPC, RLS)
+- [ ] 04-02-PLAN.md — Forum data layer: lib/forum/types.ts, utils.ts, queries.ts, actions.ts, Drizzle schema.ts
+- [ ] 04-03-PLAN.md — Middleware update: add /forum/bookmarks to auth guard
+- [ ] 04-04-PLAN.md — Read-only browsing UI: category index, thread list, thread detail pages + ThreadCard + PostItem components
+- [ ] 04-05-PLAN.md — Write UI: /forum/new thread creation form + inline ReplyForm component
+- [ ] 04-06-PLAN.md — Interactive components: VoteButton, BookmarkButton + /forum/bookmarks page + human-verify checkpoint
+
 **Success Criteria:**
 1. A logged-out visitor can browse all forum categories, thread lists, and read individual threads without being prompted to sign in.
 2. An authenticated verified user can create a new thread in a category and the thread is immediately visible to all visitors.
