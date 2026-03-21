@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { slugify } from '@/lib/forum/utils'
 
 describe('FORUM-01: Public browsing — no auth required', () => {
   it.todo('categories are publicly readable via RLS SELECT policy')
@@ -8,8 +9,10 @@ describe('FORUM-01: Public browsing — no auth required', () => {
 
 describe('FORUM-02: Verified user can create thread', () => {
   it('derives slug server-side from title', () => {
-    // Placeholder — slugify utility tested in 04-02
-    expect(true).toBe(true)
+    expect(slugify('Hello World! Test')).toBe('hello-world-test')
+    expect(slugify('  leading/trailing  ')).toBe('leading-trailing')
+    expect(slugify('a'.repeat(100)).length).toBeLessThanOrEqual(80)
+    expect(slugify('')).toBe('')
   })
   it.todo('RLS INSERT policy requires email_confirmed_at IS NOT NULL')
   it.todo('RLS INSERT policy requires auth.uid() = author_id')
