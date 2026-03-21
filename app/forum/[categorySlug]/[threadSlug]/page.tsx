@@ -103,7 +103,7 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
           const replies = repliesByParentId.get(post.id) ?? []
           return (
             <div key={post.id}>
-              <PostItem post={post} />
+              <PostItem post={post} isAuthenticated={isAuthenticated} />
               {replies.map((reply) => (
                 <PostItem key={reply.id} post={reply} isNested />
               ))}
