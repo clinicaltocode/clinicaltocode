@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 5 UI-SPEC approved
-last_updated: "2026-03-21T16:21:07.623Z"
+stopped_at: Completed 05-user-profiles Plan 01
+last_updated: "2026-03-21T17:35:45Z"
 progress:
   total_phases: 7
   completed_phases: 2
-  total_plans: 9
-  completed_plans: 7
+  total_plans: 14
+  completed_plans: 8
 ---
 
 # Project State
@@ -18,7 +18,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Clinicians and healthcare IT professionals have a trusted place to both read real frontline perspectives AND have meaningful discussions with each other.
-**Current focus:** Phase 4 — Forum (Plan 06 of 6 complete — all human verification approved)
+**Current focus:** Phase 5 — User Profiles (Plan 01 of 5 complete)
 
 ## Roadmap Status
 
@@ -28,15 +28,15 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 2 | Auth | ✅ Complete |
 | 3 | Content | ✅ Plan 03 Complete (Wave 7 manual verification pending) |
 | 4 | Forum | ✅ Complete (all 6 plans, all FORUM requirements verified) |
-| 5 | User Profiles | Not Started |
+| 5 | User Profiles | In Progress (Plan 01 of 5 complete) |
 | 6 | Moderation | Not Started |
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 4 — Forum (COMPLETE — all 6 plans done, all FORUM requirements verified in browser)
+Phase 5 — User Profiles (Plan 01 of 5 complete)
 
-**Last session:** 2026-03-21T16:21:07.621Z
-**Stopped at:** Phase 5 UI-SPEC approved
+**Last session:** 2026-03-21T17:35:45Z
+**Stopped at:** Completed 05-user-profiles Plan 01
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -53,6 +53,8 @@ Phase 4 — Forum (COMPLETE — all 6 plans done, all FORUM requirements verifie
 - `.planning/phases/04-forum/04-05-SUMMARY.md` — execution summary
 - `.planning/phases/04-forum/04-06-PLAN.md` — 3 tasks complete (incl. human-verify approved)
 - `.planning/phases/04-forum/04-06-SUMMARY.md` — execution summary
+- `.planning/phases/05-user-profiles/05-01-PLAN.md` — 3 tasks complete
+- `.planning/phases/05-user-profiles/05-01-SUMMARY.md` — execution summary
 
 ## Decisions Log
 
@@ -71,6 +73,9 @@ Phase 4 — Forum (COMPLETE — all 6 plans done, all FORUM requirements verifie
 - Phase 4 (04-06): initialBookmarked={false} simplification on thread detail — toggle still works since DB is source of truth; Phase 5 can refine initial state
 - Phase 4 (04-06): getUserBookmarks updated to join forum_categories(slug) instead of returning category_id UUID — enables correct /forum/[categorySlug]/[threadSlug] URLs on bookmarks page
 - Phase 4 (04-06): ForumBookmarkThread interface extracted from ForumBookmark to accommodate nested forum_categories join shape
+- Phase 5 (05-01): PROF test stubs use pure function inline definitions (no lib/ imports) — data layer does not exist until Plan 02
+- Phase 5 (05-01): avatars bucket created as public=true — avatar URLs work in img tags without signed URLs
+- Phase 5 (05-01): Username auto-generation: LOWER(REGEXP_REPLACE(email_prefix + '_' + uuid_6chars)) in both backfill UPDATE and trigger
 
 ## Notes
 
@@ -79,3 +84,4 @@ Phase 4 — Forum (COMPLETE — all 6 plans done, all FORUM requirements verifie
 2. Create Sanity content (Category, Author, Article) in Studio at http://localhost:3000/studio
 3. Configure Sanity webhook at sanity.io/manage with SANITY_WEBHOOK_SECRET from .env.local
 4. Update forum_categories.sanity_category_id values to match actual Sanity document _ids
+5. Apply migration: supabase/migrations/20260322000000_add_profile_storage.sql via Supabase SQL Editor (Phase 5 — avatars bucket + username backfill)

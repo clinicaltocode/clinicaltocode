@@ -31,9 +31,9 @@
 
 ### User Profiles
 
-- [ ] **PROF-01**: User has a public profile page showing username, join date, credential badge, and post history
-- [ ] **PROF-02**: User can set a self-reported credential badge on their profile (RN, NP, MD, PharmD, CMIO, Health IT, etc.)
-- [ ] **PROF-03**: User can upload a profile avatar and write a short bio
+- [x] **PROF-01**: User has a public profile page showing username, join date, credential badge, and post history
+- [x] **PROF-02**: User can set a self-reported credential badge on their profile (RN, NP, MD, PharmD, CMIO, Health IT, etc.)
+- [x] **PROF-03**: User can upload a profile avatar and write a short bio
 
 ### Moderation
 
@@ -110,9 +110,9 @@
 | FORUM-04 | Phase 4 | Complete |
 | FORUM-05 | Phase 4 | Complete |
 | FORUM-06 | Phase 4 | Complete |
-| PROF-01 | Phase 5 | Pending |
-| PROF-02 | Phase 5 | Pending |
-| PROF-03 | Phase 5 | Pending |
+| PROF-01 | Phase 5 | Complete |
+| PROF-02 | Phase 5 | Complete |
+| PROF-03 | Phase 5 | Complete |
 | MOD-01 | Phase 6 | Pending |
 | MOD-02 | Phase 6 | Pending |
 | MOD-03 | Phase 6 | Pending |
