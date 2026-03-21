@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PostItem } from '@/components/forum/post-item'
 import { ReplyForm } from '@/components/forum/reply-form'
+import { VoteButton } from '@/components/forum/vote-button'
+import { BookmarkButton } from '@/components/forum/bookmark-button'
 import { getThreadWithPosts } from '@/lib/forum/queries'
 import { createClient } from '@/lib/supabase/server'
 import { formatRelativeTime } from '@/lib/forum/utils'
@@ -61,11 +63,22 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
       <article>
         <h1 className="text-2xl font-bold mb-2">{thread.title}</h1>
         <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
-          <span>{formatRelativeTime(thread.created_at)}</span>
+          <VoteButton
+            targetId={thread.id}
+            targetType="thread"
+            initialCount={thread.vote_count}
+            isAuthenticated={isAuthenticated}
+          />
           <span>·</span>
           <span>{thread.reply_count} {thread.reply_count === 1 ? 'reply' : 'replies'}</span>
           <span>·</span>
-          <span>{thread.vote_count} {thread.vote_count === 1 ? 'vote' : 'votes'}</span>
+          <span>{formatRelativeTime(thread.created_at)}</span>
+          <span>·</span>
+          <BookmarkButton
+            threadId={thread.id}
+            initialBookmarked={false}
+            isAuthenticated={isAuthenticated}
+          />
         </div>
         {thread.body_preview && (
           <div className="prose prose-sm max-w-none border border-border rounded-lg p-4 bg-muted/30 mb-6">
