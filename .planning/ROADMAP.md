@@ -10,7 +10,7 @@
 | 2 | Auth | Build all authentication flows with verified email sessions | AUTH-01, AUTH-02, AUTH-03 |
 | 3 | 1/1 | Complete   | 2026-03-20 |
 | 4 | 6/6 | Complete   | 2026-03-21 |
-| 5 | 4/5 | In Progress|  |
+| 5 | 5/5 | Complete   | 2026-03-21 |
 | 6 | Moderation | Give admin tools to moderate content and users, and publish community guidelines | MOD-01, MOD-02, MOD-03, MOD-04 |
 | 7 | Monetization | Wire newsletter signup and reserve AdSense ad slots | MONEY-01, MONEY-02 |
 
@@ -79,7 +79,7 @@ Plans:
 ### Phase 5: User Profiles
 **Goal:** Give every user a public profile page showing their identity and post history, and allow users to configure their credential badge and avatar.
 **Requirements:** PROF-01, PROF-02, PROF-03
-**Plans:** 4/5 plans executed
+**Plans:** 5/5 plans complete
 
 Plans:
 - [ ] 05-01-PLAN.md — Wave 0 test stubs + DB migration (Storage bucket, username backfill, trigger update) + middleware /settings guard
