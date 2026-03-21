@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 06-03-PLAN.md
-last_updated: "2026-03-21T19:05:07.320Z"
+stopped_at: Completed 06-04-PLAN.md
+last_updated: "2026-03-21T19:07:35.226Z"
 progress:
   total_phases: 7
   completed_phases: 3
   total_plans: 21
-  completed_plans: 15
+  completed_plans: 16
 ---
 
 # Project State
@@ -29,14 +29,14 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 3 | Content | ✅ Plan 03 Complete (Wave 7 manual verification pending) |
 | 4 | Forum | ✅ Complete (all 6 plans, all FORUM requirements verified) |
 | 5 | User Profiles | ✅ Complete (all 5 plans, all PROF requirements verified) |
-| 6 | Moderation | In Progress — Plan 03 complete |
+| 6 | Moderation | In Progress — Plan 04 complete |
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 6 — Moderation (Plan 03 complete — Plan 04 next)
+Phase 6 — Moderation (Plan 04 complete — Plan 05 next)
 
-**Last session:** 2026-03-21T19:04:17Z
-**Stopped at:** Completed 06-03-PLAN.md
+**Last session:** 2026-03-21T19:08:30Z
+**Stopped at:** Completed 06-04-PLAN.md
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -69,6 +69,8 @@ Phase 6 — Moderation (Plan 03 complete — Plan 04 next)
 - `.planning/phases/06-moderation/06-02-SUMMARY.md` — execution summary
 - `.planning/phases/06-moderation/06-03-PLAN.md` — 2 tasks complete
 - `.planning/phases/06-moderation/06-03-SUMMARY.md` — execution summary
+- `.planning/phases/06-moderation/06-04-PLAN.md` — 1 task complete
+- `.planning/phases/06-moderation/06-04-SUMMARY.md` — execution summary
 
 ## Decisions Log
 
@@ -109,6 +111,7 @@ Phase 6 — Moderation (Plan 03 complete — Plan 04 next)
 - Phase 6 (06-02): restoreContent and permanentDeleteContent included per plan spec (MOD-03d/e) — seven actions total, not five
 - Phase 6 (06-03): Base UI Dialog uses named export { Dialog } from '@base-ui/react/dialog' — NOT namespace import (* as Dialog) — the module exports Dialog as a single named export wrapping Root/Backdrop/Popup
 - Phase 6 (06-03): GuidelinesBanner uses DISMISSED_KEY constant for localStorage key — SSR-safe mount-check pattern with useState(true) default + useEffect
+- Phase 6 (06-04): Static hardcoded JSX for community guidelines — no CMS dependency, founder edits source directly; page works even if DB is down
 
 ## Notes
 
