@@ -79,6 +79,15 @@ Plans:
 ### Phase 5: User Profiles
 **Goal:** Give every user a public profile page showing their identity and post history, and allow users to configure their credential badge and avatar.
 **Requirements:** PROF-01, PROF-02, PROF-03
+**Plans:** 5 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Wave 0 test stubs + DB migration (Storage bucket, username backfill, trigger update) + middleware /settings guard
+- [ ] 05-02-PLAN.md — Profile data layer: lib/profile/types.ts, queries.ts, actions.ts
+- [ ] 05-03-PLAN.md — shadcn installs (Avatar, Select, Input) + profile UI components (CredentialBadge, CredentialSelect, AvatarUpload, ProfilePostHistory)
+- [ ] 05-04-PLAN.md — Profile pages: /profile/[username] public page + /settings/profile settings page + settings form
+- [ ] 05-05-PLAN.md — Forum badge propagation: ThreadCard + PostItem credential display + batch getProfilesByIds + human-verify checkpoint
+
 **Success Criteria:**
 1. Navigating to `/profile/[username]` shows that user's username, join date, credential badge, and paginated post history.
 2. A user can select a credential badge (RN, NP, MD, PharmD, CMIO, Health IT, etc.) in their settings and it appears on their public profile and next to their forum posts.
