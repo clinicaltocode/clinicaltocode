@@ -11,7 +11,7 @@
 | 3 | 1/1 | Complete   | 2026-03-20 |
 | 4 | 6/6 | Complete   | 2026-03-21 |
 | 5 | 5/5 | Complete   | 2026-03-21 |
-| 6 | 2/7 | In Progress|  |
+| 6 | 3/7 | In Progress|  |
 | 7 | Monetization | Wire newsletter signup and reserve AdSense ad slots | MONEY-01, MONEY-02 |
 
 ---
@@ -98,7 +98,7 @@ Plans:
 ### Phase 6: Moderation
 **Goal:** Equip the admin to handle reported content, remove harmful posts, ban bad actors, and publish community guidelines before any public launch.
 **Requirements:** MOD-01, MOD-02, MOD-03, MOD-04
-**Plans:** 2/7 plans executed
+**Plans:** 3/7 plans executed
 
 Plans:
 - [ ] 06-01-PLAN.md — Wave 0 test stubs (moderation.test.ts) + DB migration (content_reports table + RLS + admin update policies) + middleware admin guard
