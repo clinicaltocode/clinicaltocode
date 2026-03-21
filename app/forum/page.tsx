@@ -3,6 +3,8 @@ import { buttonVariants } from '@/components/ui/button-variants'
 import { getCategories } from '@/lib/forum/queries'
 import { createClient } from '@/lib/supabase/server'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Forum | Clinical to Code',
   description: 'Discuss clinical informatics, EHR workflows, nursing, pharmacy, and physician perspectives.',
