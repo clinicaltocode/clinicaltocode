@@ -57,13 +57,14 @@ export function ReportModal({
 
   return (
     <Dialog.Root open={open} onOpenChange={(isOpen) => { if (!isOpen) handleClose() }}>
-      <Dialog.Backdrop className="fixed inset-0 bg-black/40 z-40" />
-      <Dialog.Popup
-        className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-full max-w-md min-w-[320px] bg-background border border-border rounded-lg p-6 shadow-lg"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="report-modal-title"
-      >
+      <Dialog.Portal>
+        <Dialog.Backdrop className="fixed inset-0 bg-black/40 z-40" />
+        <Dialog.Popup
+          className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-full max-w-md min-w-[320px] bg-background border border-border rounded-lg p-6 shadow-lg"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="report-modal-title"
+        >
         {state === 'success' ? (
           <div className="flex flex-col items-center gap-3 py-4 text-center">
             <CheckCircle className="h-6 w-6 text-primary" />
@@ -142,7 +143,8 @@ export function ReportModal({
             </button>
           </form>
         )}
-      </Dialog.Popup>
+        </Dialog.Popup>
+      </Dialog.Portal>
     </Dialog.Root>
   )
 }
