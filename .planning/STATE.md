@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 6 UI-SPEC approved
-last_updated: "2026-03-21T18:42:30.946Z"
+stopped_at: "Completed 06-01-PLAN.md"
+last_updated: "2026-03-21T18:57:42Z"
 progress:
   total_phases: 7
   completed_phases: 3
-  total_plans: 14
-  completed_plans: 12
+  total_plans: 21
+  completed_plans: 13
 ---
 
 # Project State
@@ -29,14 +29,14 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 3 | Content | ✅ Plan 03 Complete (Wave 7 manual verification pending) |
 | 4 | Forum | ✅ Complete (all 6 plans, all FORUM requirements verified) |
 | 5 | User Profiles | ✅ Complete (all 5 plans, all PROF requirements verified) |
-| 6 | Moderation | Not Started |
+| 6 | Moderation | In Progress — Plan 01 complete |
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 6 — Moderation (next phase to begin)
+Phase 6 — Moderation (Plan 01 complete — Plan 02 next)
 
-**Last session:** 2026-03-21T18:42:30.944Z
-**Stopped at:** Phase 6 UI-SPEC approved
+**Last session:** 2026-03-21T18:57:42Z
+**Stopped at:** Completed 06-01-PLAN.md
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -63,6 +63,8 @@ Phase 6 — Moderation (next phase to begin)
 - `.planning/phases/05-user-profiles/05-04-SUMMARY.md` — execution summary
 - `.planning/phases/05-user-profiles/05-05-PLAN.md` — 3 tasks complete (incl. human-verify approved)
 - `.planning/phases/05-user-profiles/05-05-SUMMARY.md` — execution summary
+- `.planning/phases/06-moderation/06-01-PLAN.md` — 3 tasks complete
+- `.planning/phases/06-moderation/06-01-SUMMARY.md` — execution summary
 
 ## Decisions Log
 
@@ -96,6 +98,9 @@ Phase 6 — Moderation (next phase to begin)
 - Phase 5 (05-05): AuthorMeta interface co-located in lib/forum/types.ts (forum display type) rather than lib/profile/types.ts
 - Phase 5 (05-05): author prop optional on ThreadCard and PostItem for backward compatibility with existing call sites
 - Phase 5 (05-05): Batch profile fetch pattern — deduplicate author_ids with Set, single getProfilesByIds call, profilesById[id] ?? null per render
+- Phase 6 (06-01): Admin middleware guard uses two-block structure — unauthenticated fast path (no DB) precedes is_admin DB check (only fires for /admin/* paths)
+- Phase 6 (06-01): content_reports duplicate handling — error code 23505 treated as success in submitReport, matching the no-op intent of the unique constraint
+- Phase 6 (06-01): Admin reads content_reports via explicit RLS SELECT policy (not service client) — cleaner than blanket RLS bypass for read operations
 
 ## Notes
 
@@ -105,3 +110,5 @@ Phase 6 — Moderation (next phase to begin)
 3. Configure Sanity webhook at sanity.io/manage with SANITY_WEBHOOK_SECRET from .env.local
 4. Update forum_categories.sanity_category_id values to match actual Sanity document _ids
 5. Apply migration: supabase/migrations/20260322000000_add_profile_storage.sql via Supabase SQL Editor (Phase 5 — avatars bucket + username backfill)
+6. Apply migration: supabase/migrations/20260322000001_add_moderation.sql via Supabase SQL Editor (Phase 6 — content_reports table + admin update policies)
+7. Set is_admin = true on own user_profiles row via Supabase SQL Editor (solo operator pattern)

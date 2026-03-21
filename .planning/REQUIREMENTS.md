@@ -37,9 +37,9 @@
 
 ### Moderation
 
-- [ ] **MOD-01**: Authenticated user can report a post or thread via a report button
-- [ ] **MOD-02**: Admin can view a queue of reported content and mark reports as reviewed
-- [ ] **MOD-03**: Admin can soft-delete any post or thread and ban a user account
+- [x] **MOD-01**: Authenticated user can report a post or thread via a report button
+- [x] **MOD-02**: Admin can view a queue of reported content and mark reports as reviewed
+- [x] **MOD-03**: Admin can soft-delete any post or thread and ban a user account
 - [ ] **MOD-04**: Site has a publicly visible Community Guidelines page explaining platform norms (clinical discourse, de-identification, professional tone)
 
 ### Monetization
@@ -113,9 +113,9 @@
 | PROF-01 | Phase 5 | Complete |
 | PROF-02 | Phase 5 | Complete |
 | PROF-03 | Phase 5 | Complete |
-| MOD-01 | Phase 6 | Pending |
-| MOD-02 | Phase 6 | Pending |
-| MOD-03 | Phase 6 | Pending |
+| MOD-01 | Phase 6 | Complete |
+| MOD-02 | Phase 6 | Complete |
+| MOD-03 | Phase 6 | Complete |
 | MOD-04 | Phase 6 | Pending |
 | MONEY-01 | Phase 7 | Pending |
 | MONEY-02 | Phase 7 | Pending |
