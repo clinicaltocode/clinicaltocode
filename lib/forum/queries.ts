@@ -82,7 +82,7 @@ export async function getUserBookmarks(): Promise<ForumBookmark[]> {
 
   const { data, error } = await supabase
     .from('forum_bookmarks')
-    .select('*, forum_threads(id, title, slug, vote_count, reply_count, created_at, category_id)')
+    .select('*, forum_threads(id, title, slug, vote_count, reply_count, created_at, forum_categories(slug))')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
 

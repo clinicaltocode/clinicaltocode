@@ -40,13 +40,23 @@ export interface ForumPost {
   user_profiles?: { username: string | null; credential_badge: string | null } | null
 }
 
+export interface ForumBookmarkThread {
+  id: string
+  title: string
+  slug: string
+  vote_count: number
+  reply_count: number
+  created_at: string
+  forum_categories?: { slug: string } | null
+}
+
 export interface ForumBookmark {
   id: string
   thread_id: string
   user_id: string
   created_at: string
-  // Joined thread for bookmarks page
-  forum_threads?: Pick<ForumThread, 'id' | 'title' | 'slug' | 'vote_count' | 'reply_count' | 'created_at' | 'category_id'> | null
+  // Joined thread for bookmarks page (includes nested forum_categories for category slug)
+  forum_threads?: ForumBookmarkThread | null
 }
 
 export interface ThreadWithPosts {
