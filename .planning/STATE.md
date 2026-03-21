@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-forum-04-03-PLAN.md
-last_updated: "2026-03-21T13:31:43.118Z"
+stopped_at: Completed 04-02-PLAN.md (forum data layer — types, utils, queries, actions all written)
+last_updated: "2026-03-21T15:19:25.077Z"
 progress:
   total_phases: 7
   completed_phases: 1
   total_plans: 9
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -35,14 +35,16 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 ## Active Phase
 Phase 4 — Forum (Plan 03 of 6 complete)
 
-**Last session:** 2026-03-21T13:31:43.116Z
-**Stopped at:** Completed 04-forum-04-03-PLAN.md
+**Last session:** 2026-03-21T15:19:25.075Z
+**Stopped at:** Completed 04-02-PLAN.md (forum data layer — types, utils, queries, actions all written)
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
 - `.planning/phases/03-content/03-SUMMARY.md` — execution summary
 - `.planning/phases/04-forum/04-01-PLAN.md` — 2 tasks complete
 - `.planning/phases/04-forum/04-01-SUMMARY.md` — execution summary
+- `.planning/phases/04-forum/04-02-PLAN.md` — 2 tasks complete
+- `.planning/phases/04-forum/04-02-SUMMARY.md` — execution summary
 - `.planning/phases/04-forum/04-03-PLAN.md` — 1 task complete
 - `.planning/phases/04-forum/04-03-SUMMARY.md` — execution summary
 
@@ -56,6 +58,8 @@ Phase 4 — Forum (Plan 03 of 6 complete)
 - Phase 4 (04-01): Polymorphic forum_votes table uses target_type TEXT discriminator ('thread' | 'post') rather than separate vote tables
 - Phase 4 (04-01): toggle_vote is SECURITY DEFINER to allow atomic multi-table operation bypassing RLS mid-transaction
 - Phase 4 (04-01): depth CHECK (depth <= 1) enforced at DB level on forum_posts — hard guarantee for 2-level nesting
+- Phase 4 (04-02): slugify treats non-word chars as spaces (not removed) so forward-slash becomes a hyphen separator
+- Phase 4 (04-02): createThread pre-fetches category slug before insert to avoid Supabase typed join array issue
 - Phase 4 (04-03): /forum/bookmarks added to auth gate only (not verified-user gate) — bookmarks require login but not email verification
 
 ## Notes
