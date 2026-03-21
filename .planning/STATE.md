@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in-progress
-stopped_at: Completed 05-user-profiles Plan 05 — Phase 5 complete, human-verify approved
+stopped_at: Completed 05-05 — Phase 5 User Profiles complete, human-verify approved
 last_updated: "2026-03-21T18:10:00Z"
 progress:
   total_phases: 7
@@ -35,8 +35,8 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 ## Active Phase
 Phase 6 — Moderation (next phase to begin)
 
-**Last session:** 2026-03-21T18:10:00Z
-**Stopped at:** Completed 05-user-profiles Plan 05 — all 9 human-verify flows approved
+**Last session:** 2026-03-21T17:59:40.346Z
+**Stopped at:** Completed 05-05 — Phase 5 User Profiles complete, human-verify approved
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
