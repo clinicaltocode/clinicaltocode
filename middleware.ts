@@ -73,6 +73,29 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
+  // Redirect unauthenticated users away from /admin.
+  if (!user && pathname.startsWith('/admin')) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/auth/login'
+    return NextResponse.redirect(url)
+  }
+
+  // Redirect non-admin authenticated users away from /admin.
+  // DB query is guarded by pathname check to avoid latency on public routes.
+  if (user && pathname.startsWith('/admin')) {
+    const { data: profile } = await supabase
+      .from('user_profiles')
+      .select('is_admin')
+      .eq('id', user.id)
+      .single()
+
+    if (!profile?.is_admin) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/'
+      return NextResponse.redirect(url)
+    }
+  }
+
   // Redirect already-authenticated users away from login/signup.
   if (user && (pathname === '/auth/login' || pathname === '/auth/signup')) {
     const url = request.nextUrl.clone()
