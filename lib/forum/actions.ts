@@ -50,7 +50,12 @@ export async function createThread(formData: FormData) {
       is_article_thread: false,
     })
 
-  if (error) throw error
+  if (error) {
+    if (error.code === '42501') {
+      throw new Error('You must have a verified account to create threads.')
+    }
+    throw new Error(error.message)
+  }
 
   // Redirect to the thread detail URL under its category
   const categorySlug = category?.slug ?? 'general'
@@ -102,7 +107,12 @@ export async function createPost(formData: FormData) {
       depth,
     })
 
-  if (insertError) throw insertError
+  if (insertError) {
+    if (insertError.code === '42501') {
+      throw new Error('You must have a verified account to post replies.')
+    }
+    throw new Error(insertError.message)
+  }
 
   // Increment reply_count on the thread (display-only — read-then-write, rare race is acceptable)
   const { data: threadData } = await supabase
