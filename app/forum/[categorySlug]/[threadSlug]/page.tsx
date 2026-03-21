@@ -4,7 +4,9 @@ import { PostItem } from '@/components/forum/post-item'
 import { ReplyForm } from '@/components/forum/reply-form'
 import { VoteButton } from '@/components/forum/vote-button'
 import { BookmarkButton } from '@/components/forum/bookmark-button'
+import { CredentialBadge } from '@/components/profile/credential-badge'
 import { getThreadWithPosts } from '@/lib/forum/queries'
+import { getProfilesByIds } from '@/lib/profile/queries'
 import { createClient } from '@/lib/supabase/server'
 import { formatRelativeTime } from '@/lib/forum/utils'
 
@@ -31,6 +33,14 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
   const isAuthenticated = !!user
 
   const { thread, topPosts, nestedPosts } = result
+
+  // Batch fetch all author profiles in one query — no N+1
+  const allAuthorIds = [...new Set([
+    thread.author_id,
+    ...topPosts.map((p) => p.author_id),
+    ...nestedPosts.map((p) => p.author_id),
+  ].filter(Boolean))] as string[]
+  const profilesById = await getProfilesByIds(allAuthorIds)
 
   // Build a map from parentPostId → replies for O(1) lookup
   const repliesByParentId = new Map<string, typeof nestedPosts>()
@@ -62,7 +72,7 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
       {/* Thread header */}
       <article>
         <h1 className="text-2xl font-bold mb-2">{thread.title}</h1>
-        <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
+        <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
           <VoteButton
             targetId={thread.id}
             targetType="thread"
@@ -80,6 +90,14 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
             isAuthenticated={isAuthenticated}
           />
         </div>
+        {thread.author_id && profilesById[thread.author_id] && (
+          <div className="flex items-center gap-1 text-sm text-muted-foreground mb-4">
+            <span className="font-medium text-foreground">
+              {profilesById[thread.author_id].username}
+            </span>
+            <CredentialBadge credential={profilesById[thread.author_id].credential_badge} />
+          </div>
+        )}
         {thread.body_preview && (
           <div className="prose prose-sm max-w-none border border-border rounded-lg p-4 bg-muted/30 mb-6">
             <p>{thread.body_preview}</p>
@@ -103,9 +121,18 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
           const replies = repliesByParentId.get(post.id) ?? []
           return (
             <div key={post.id}>
-              <PostItem post={post} isAuthenticated={isAuthenticated} />
+              <PostItem
+                post={post}
+                isAuthenticated={isAuthenticated}
+                author={post.author_id ? profilesById[post.author_id] ?? null : null}
+              />
               {replies.map((reply) => (
-                <PostItem key={reply.id} post={reply} isNested />
+                <PostItem
+                  key={reply.id}
+                  post={reply}
+                  isNested
+                  author={reply.author_id ? profilesById[reply.author_id] ?? null : null}
+                />
               ))}
             </div>
           )

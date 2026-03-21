@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { buttonVariants } from '@/components/ui/button-variants'
 import { ThreadCard } from '@/components/forum/thread-card'
 import { getCategories, getThreadsByCategory } from '@/lib/forum/queries'
+import { getProfilesByIds } from '@/lib/profile/queries'
 
 interface CategoryPageProps {
   params: Promise<{ categorySlug: string }>
@@ -25,6 +26,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   if (!category) notFound()
 
   const threads = await getThreadsByCategory(categorySlug)
+
+  const authorIds = [...new Set(threads.map((t) => t.author_id).filter(Boolean))] as string[]
+  const profilesById = await getProfilesByIds(authorIds)
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-4xl">
@@ -51,6 +55,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             key={thread.id}
             thread={thread}
             categorySlug={categorySlug}
+            author={thread.author_id ? profilesById[thread.author_id] ?? null : null}
           />
         ))}
       </div>
