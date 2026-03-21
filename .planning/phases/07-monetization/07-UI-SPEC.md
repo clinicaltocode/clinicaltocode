@@ -63,7 +63,7 @@ Source: Derived from `app/globals.css` (body line-height: 1.6), `app/page.tsx` (
 
 Notes:
 - Newsletter form fields and labels use 14px label / 16px input (consistent with existing Input component).
-- Ad slot "Ad" label (accessibility disclosure) uses 12px, weight 400, color `--muted-foreground` (`oklch(0.556 0 0)`).
+- Ad slot "Advertisement" label uses 14px (Label/meta), weight 400, color `--muted-foreground`.
 
 ---
 
@@ -77,7 +77,7 @@ Notes:
 | Destructive | `oklch(0.577 0.245 27.325)` / `var(--destructive)` | Validation error on invalid email input |
 
 Accent reserved for:
-- The "Subscribe" submit button (newsletter form)
+- The "Subscribe to Newsletter" submit button (newsletter form)
 - "Confirm your subscription" link text in the confirmation email
 - Any inline link pointing to the newsletter confirmation success page
 
@@ -85,7 +85,7 @@ Source: `app/globals.css` — `--primary: #0066cc`, `--muted: oklch(0.97 0 0)`, 
 
 Additional color notes:
 - Ad slot placeholder (pre-activation): `background: var(--muted)` (`oklch(0.97 0 0)`), `border: 1px solid var(--border)` (`oklch(0.922 0 0)`), `border-radius: var(--radius)` (0.625rem). This prevents layout flash and looks intentional before AdSense activates.
-- Ad slot placeholder text: "Advertisement" in 12px, `var(--muted-foreground)`, centered — required by AdSense policy and good UX practice.
+- Ad slot placeholder text: "Advertisement" in 14px, `var(--muted-foreground)`, centered — required by AdSense policy and good UX practice.
 
 ---
 
@@ -93,7 +93,7 @@ Additional color notes:
 
 | Element | Copy |
 |---------|------|
-| Primary CTA | "Subscribe" |
+| Primary CTA | "Subscribe to Newsletter" |
 | Newsletter form label | "Stay informed" |
 | Newsletter form subtext | "Clinical insights and healthcare IT perspectives, delivered to your inbox." |
 | Email input placeholder | "your@email.com" |
@@ -151,7 +151,7 @@ Used on: homepage (`app/page.tsx` aside/sidebar area, replacing empty `<aside />
 │  ┌────────────────────────────────────────┐  │
 │  │ your@email.com                         │  │  ← Input component, full width
 │  └────────────────────────────────────────┘  │
-│  [        Subscribe        ]                 │  ← Button, variant="default", full width
+│  [    Subscribe to Newsletter    ]           │  ← Button, variant="default", full width
 │                                              │
 │  (error message if invalid — 14px red)       │
 └──────────────────────────────────────────────┘
@@ -169,7 +169,7 @@ Used on: article detail pages (after article body, before Forum CTA), homepage m
 
 ```
 ┌─────────────────────────────────────────────┐
-│  Advertisement                              │  ← 12px, muted-foreground, text-center
+│  Advertisement                              │  ← 14px, muted-foreground, text-center
 │                                             │
 │  [  muted background placeholder / ins  ]  │  ← min-height: 250px, min-width: 300px
 │                                             │
