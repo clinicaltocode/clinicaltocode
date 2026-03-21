@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-user-profiles Plan 01
-last_updated: "2026-03-21T17:35:45Z"
+stopped_at: Completed 05-user-profiles Plan 02
+last_updated: "2026-03-21T17:38:05Z"
 progress:
   total_phases: 7
   completed_phases: 2
   total_plans: 14
-  completed_plans: 8
+  completed_plans: 9
 ---
 
 # Project State
@@ -18,7 +18,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Clinicians and healthcare IT professionals have a trusted place to both read real frontline perspectives AND have meaningful discussions with each other.
-**Current focus:** Phase 5 — User Profiles (Plan 01 of 5 complete)
+**Current focus:** Phase 5 — User Profiles (Plan 02 of 5 complete)
 
 ## Roadmap Status
 
@@ -28,15 +28,15 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 2 | Auth | ✅ Complete |
 | 3 | Content | ✅ Plan 03 Complete (Wave 7 manual verification pending) |
 | 4 | Forum | ✅ Complete (all 6 plans, all FORUM requirements verified) |
-| 5 | User Profiles | In Progress (Plan 01 of 5 complete) |
+| 5 | User Profiles | In Progress (Plan 02 of 5 complete) |
 | 6 | Moderation | Not Started |
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 5 — User Profiles (Plan 01 of 5 complete)
+Phase 5 — User Profiles (Plan 02 of 5 complete)
 
-**Last session:** 2026-03-21T17:35:45Z
-**Stopped at:** Completed 05-user-profiles Plan 01
+**Last session:** 2026-03-21T17:38:05Z
+**Stopped at:** Completed 05-user-profiles Plan 02
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -55,6 +55,8 @@ Phase 5 — User Profiles (Plan 01 of 5 complete)
 - `.planning/phases/04-forum/04-06-SUMMARY.md` — execution summary
 - `.planning/phases/05-user-profiles/05-01-PLAN.md` — 3 tasks complete
 - `.planning/phases/05-user-profiles/05-01-SUMMARY.md` — execution summary
+- `.planning/phases/05-user-profiles/05-02-PLAN.md` — 2 tasks complete
+- `.planning/phases/05-user-profiles/05-02-SUMMARY.md` — execution summary
 
 ## Decisions Log
 
@@ -76,6 +78,9 @@ Phase 5 — User Profiles (Plan 01 of 5 complete)
 - Phase 5 (05-01): PROF test stubs use pure function inline definitions (no lib/ imports) — data layer does not exist until Plan 02
 - Phase 5 (05-01): avatars bucket created as public=true — avatar URLs work in img tags without signed URLs
 - Phase 5 (05-01): Username auto-generation: LOWER(REGEXP_REPLACE(email_prefix + '_' + uuid_6chars)) in both backfill UPDATE and trigger
+- Phase 5 (05-02): PGRST116 null guard in getProfile returns null for missing profiles without throwing
+- Phase 5 (05-02): VALID_CREDENTIALS exported from types.ts as single source of truth for both Server Action allowlist and UI components
+- Phase 5 (05-02): getProfilePostHistory uses parallel Promise.all + JS merge — PostgREST has no UNION support
 
 ## Notes
 
