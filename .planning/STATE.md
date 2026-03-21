@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in-progress
-stopped_at: Completed 05-user-profiles Plan 03
-last_updated: "2026-03-21T11:45:00Z"
+status: unknown
+stopped_at: Completed 05-user-profiles Plan 04
+last_updated: "2026-03-21T17:57:00Z"
 progress:
   total_phases: 7
   completed_phases: 2
   total_plans: 14
-  completed_plans: 10
+  completed_plans: 11
 ---
 
 # Project State
@@ -18,7 +18,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Clinicians and healthcare IT professionals have a trusted place to both read real frontline perspectives AND have meaningful discussions with each other.
-**Current focus:** Phase 5 — User Profiles (Plan 03 of 5 complete)
+**Current focus:** Phase 5 — User Profiles (Plan 04 of 5 complete)
 
 ## Roadmap Status
 
@@ -28,15 +28,15 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 2 | Auth | ✅ Complete |
 | 3 | Content | ✅ Plan 03 Complete (Wave 7 manual verification pending) |
 | 4 | Forum | ✅ Complete (all 6 plans, all FORUM requirements verified) |
-| 5 | User Profiles | In Progress (Plan 03 of 5 complete) |
+| 5 | User Profiles | In Progress (Plan 04 of 5 complete) |
 | 6 | Moderation | Not Started |
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 5 — User Profiles (Plan 03 of 5 complete)
+Phase 5 — User Profiles (Plan 04 of 5 complete)
 
-**Last session:** 2026-03-21T11:45:00Z
-**Stopped at:** Completed 05-user-profiles Plan 03
+**Last session:** 2026-03-21T17:57:00Z
+**Stopped at:** Completed 05-user-profiles Plan 04
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -59,6 +59,8 @@ Phase 5 — User Profiles (Plan 03 of 5 complete)
 - `.planning/phases/05-user-profiles/05-02-SUMMARY.md` — execution summary
 - `.planning/phases/05-user-profiles/05-03-PLAN.md` — 2 tasks complete
 - `.planning/phases/05-user-profiles/05-03-SUMMARY.md` — execution summary
+- `.planning/phases/05-user-profiles/05-04-PLAN.md` — 2 tasks complete
+- `.planning/phases/05-user-profiles/05-04-SUMMARY.md` — execution summary
 
 ## Decisions Log
 
@@ -86,6 +88,9 @@ Phase 5 — User Profiles (Plan 03 of 5 complete)
 - Phase 5 (05-03): Base UI Button has no asChild — use buttonVariants on label for file input trigger (same as Phase 4-04 pattern)
 - Phase 5 (05-03): Base UI SelectRoot onValueChange is (value: string | null) — bridge via null-guard wrapper in CredentialSelect
 - Phase 5 (05-03): CredentialBadge has no 'use client' — pure display component safe for server rendering
+- Phase 5 (05-04): Inline 'Profile updated.' success feedback uses <p> not a toast — plan specified no additional toast dependency needed
+- Phase 5 (05-04): Settings page fetches profile by user.id directly via Supabase query — settings context always has auth user, avoids extra username lookup
+- Phase 5 (05-04): shadcn Textarea installed as auto-fix — UI-SPEC listed it as existing but not yet installed in components/ui/
 
 ## Notes
 
