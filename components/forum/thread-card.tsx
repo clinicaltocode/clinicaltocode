@@ -1,17 +1,22 @@
+'use client'
+
 import { ArrowUp, MessageSquare } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import { formatRelativeTime } from '@/lib/forum/utils'
 import type { ForumThread, AuthorMeta } from '@/lib/forum/types'
 import { CredentialBadge } from '@/components/profile/credential-badge'
+import { ReportButton } from './report-button'
 
 interface ThreadCardProps {
   thread: ForumThread
   categorySlug: string
   author?: AuthorMeta | null  // optional — backward compatible
+  currentUserId?: string | null  // new — for ownership check
+  isAuthenticated?: boolean      // new
 }
 
-export function ThreadCard({ thread, categorySlug, author }: ThreadCardProps) {
+export function ThreadCard({ thread, categorySlug, author, currentUserId, isAuthenticated = false }: ThreadCardProps) {
   return (
     <article className="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors">
       <div className="flex items-start justify-between gap-4">
@@ -55,6 +60,12 @@ export function ThreadCard({ thread, categorySlug, author }: ThreadCardProps) {
           </>
         )}
         <span>{formatRelativeTime(thread.created_at)}</span>
+        <ReportButton
+          targetType="thread"
+          targetId={thread.id}
+          isAuthenticated={isAuthenticated}
+          isOwn={currentUserId != null && thread.author_id === currentUserId}
+        />
       </div>
     </article>
   )

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button-variants'
 import { getCategories } from '@/lib/forum/queries'
 import { createClient } from '@/lib/supabase/server'
+import { GuidelinesBanner } from '@/components/forum/guidelines-banner'
 
 export const dynamic = 'force-dynamic'
 
@@ -34,7 +35,9 @@ export default async function ForumPage() {
         )}
       </div>
 
-      <div className="grid gap-4">
+      <GuidelinesBanner />
+
+      <div className="grid gap-4 mt-6">
         {categories.map((category) => (
           <Link
             key={category.id}

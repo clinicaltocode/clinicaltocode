@@ -28,6 +28,9 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
 
   if (!result) notFound()
 
+  const { thread: threadCheck } = result
+  if (threadCheck.is_removed) notFound()
+
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   const isAuthenticated = !!user
