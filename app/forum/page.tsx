@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button-variants'
 import { getCategories } from '@/lib/forum/queries'
+import { createClient } from '@/lib/supabase/server'
 
 export const metadata = {
   title: 'Forum | Clinical to Code',
@@ -8,7 +9,8 @@ export const metadata = {
 }
 
 export default async function ForumPage() {
-  const categories = await getCategories()
+  const [categories, supabase] = await Promise.all([getCategories(), createClient()])
+  const { data: { user } } = await supabase.auth.getUser()
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-4xl">
@@ -19,9 +21,15 @@ export default async function ForumPage() {
             Clinical discussions for healthcare professionals
           </p>
         </div>
-        <Link href="/forum/new" className={buttonVariants()}>
-          New Thread
-        </Link>
+        {user ? (
+          <Link href="/forum/new" className={buttonVariants()}>
+            New Thread
+          </Link>
+        ) : (
+          <Link href="/auth/login" className={buttonVariants({ variant: 'outline' })}>
+            Sign in to post
+          </Link>
+        )}
       </div>
 
       <div className="grid gap-4">
