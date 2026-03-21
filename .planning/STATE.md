@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-05-PLAN.md (forum write UI — thread creation form + reply form)
-last_updated: "2026-03-21T15:34:45.298Z"
+stopped_at: Completed 04-06-PLAN.md (vote button, bookmark button, bookmarks page) — awaiting human-verify checkpoint
+last_updated: "2026-03-21T15:39:30Z"
 progress:
   total_phases: 7
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 9
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -18,7 +18,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Clinicians and healthcare IT professionals have a trusted place to both read real frontline perspectives AND have meaningful discussions with each other.
-**Current focus:** Phase 4 — Forum (Plan 05 complete)
+**Current focus:** Phase 4 — Forum (Plan 06 complete — human-verify checkpoint pending)
 
 ## Roadmap Status
 
@@ -27,16 +27,16 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 1 | Foundation | ✅ Complete |
 | 2 | Auth | ✅ Complete |
 | 3 | Content | ✅ Plan 03 Complete (Wave 7 manual verification pending) |
-| 4 | Forum | In Progress (Plan 05 of 6 complete) |
+| 4 | Forum | In Progress (Plan 06 of 6 complete — human-verify checkpoint pending) |
 | 5 | User Profiles | Not Started |
 | 6 | Moderation | Not Started |
 | 7 | Monetization | Not Started |
 
 ## Active Phase
-Phase 4 — Forum (Plan 05 of 6 complete)
+Phase 4 — Forum (Plan 06 of 6 complete — human-verify checkpoint pending)
 
-**Last session:** 2026-03-21T15:34:45.296Z
-**Stopped at:** Completed 04-05-PLAN.md (forum write UI — thread creation form + reply form)
+**Last session:** 2026-03-21T15:39:30Z
+**Stopped at:** Completed 04-06-PLAN.md (vote button, bookmark button, bookmarks page) — awaiting human-verify checkpoint
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -51,6 +51,8 @@ Phase 4 — Forum (Plan 05 of 6 complete)
 - `.planning/phases/04-forum/04-04-SUMMARY.md` — execution summary
 - `.planning/phases/04-forum/04-05-PLAN.md` — 2 tasks complete
 - `.planning/phases/04-forum/04-05-SUMMARY.md` — execution summary
+- `.planning/phases/04-forum/04-06-PLAN.md` — 2 tasks complete (checkpoint pending)
+- `.planning/phases/04-forum/04-06-SUMMARY.md` — execution summary
 
 ## Decisions Log
 
@@ -66,6 +68,9 @@ Phase 4 — Forum (Plan 05 of 6 complete)
 - Phase 4 (04-02): createThread pre-fetches category slug before insert to avoid Supabase typed join array issue
 - Phase 4 (04-03): /forum/bookmarks added to auth gate only (not verified-user gate) — bookmarks require login but not email verification
 - Phase 4 (04-04): buttonVariants with Link instead of Button asChild — Base UI button has no asChild support (unlike shadcn)
+- Phase 4 (04-06): initialBookmarked={false} simplification on thread detail — toggle still works since DB is source of truth; Phase 5 can refine initial state
+- Phase 4 (04-06): getUserBookmarks updated to join forum_categories(slug) instead of returning category_id UUID — enables correct /forum/[categorySlug]/[threadSlug] URLs on bookmarks page
+- Phase 4 (04-06): ForumBookmarkThread interface extracted from ForumBookmark to accommodate nested forum_categories join shape
 
 ## Notes
 
