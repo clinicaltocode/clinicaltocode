@@ -49,7 +49,9 @@ export async function middleware(request: NextRequest) {
   // are added to this guard in Phase 4.
   if (
     !user &&
-    (pathname.startsWith('/profile') || pathname.startsWith('/forum/new'))
+    (pathname.startsWith('/profile') ||
+      pathname.startsWith('/forum/new') ||
+      pathname.startsWith('/forum/bookmarks'))
   ) {
     const url = request.nextUrl.clone()
     url.pathname = '/auth/login'
