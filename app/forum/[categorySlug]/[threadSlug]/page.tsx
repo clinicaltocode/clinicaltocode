@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PostItem } from '@/components/forum/post-item'
+import { ReplyForm } from '@/components/forum/reply-form'
 import { getThreadWithPosts } from '@/lib/forum/queries'
+import { createClient } from '@/lib/supabase/server'
 import { formatRelativeTime } from '@/lib/forum/utils'
 
 interface ThreadPageProps {
@@ -21,6 +23,10 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
   const result = await getThreadWithPosts(threadSlug)
 
   if (!result) notFound()
+
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  const isAuthenticated = !!user
 
   const { thread, topPosts, nestedPosts } = result
 
@@ -93,9 +99,26 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
         })}
       </section>
 
-      {/* Reply form placeholder — wired in Plan 05 */}
-      <div className="mt-8 p-4 border border-dashed border-border rounded-lg text-center text-sm text-muted-foreground">
-        Reply form — coming in next plan
+      {/* Main reply form — for authenticated users */}
+      <div className="mt-8">
+        {isAuthenticated ? (
+          <div>
+            <h3 className="text-base font-semibold mb-3">Leave a Reply</h3>
+            <ReplyForm threadId={thread.id} />
+          </div>
+        ) : (
+          <div className="text-center py-6 border border-border rounded-lg">
+            <p className="text-sm text-muted-foreground mb-3">
+              Sign in to join the discussion
+            </p>
+            <a
+              href="/auth/login"
+              className="text-sm font-medium text-primary hover:underline"
+            >
+              Sign in
+            </a>
+          </div>
+        )}
       </div>
     </main>
   )
