@@ -62,3 +62,9 @@ export interface ThreadWithPosts {
   topPosts: ForumPost[]
   nestedPosts: ForumPost[]
 }
+
+/** Resolved author profile data for display in forum components. */
+export interface AuthorMeta {
+  username: string
+  credential_badge: string | null
+}

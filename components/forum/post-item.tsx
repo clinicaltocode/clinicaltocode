@@ -2,22 +2,29 @@
 
 import { useState } from 'react'
 import { formatRelativeTime } from '@/lib/forum/utils'
-import type { ForumPost } from '@/lib/forum/types'
+import type { ForumPost, AuthorMeta } from '@/lib/forum/types'
 import { ReplyForm } from './reply-form'
+import { CredentialBadge } from '@/components/profile/credential-badge'
 
 interface PostItemProps {
   post: ForumPost
   isNested?: boolean
   isAuthenticated?: boolean
+  author?: AuthorMeta | null  // optional — backward compatible
 }
 
-export function PostItem({ post, isNested = false, isAuthenticated = false }: PostItemProps) {
+export function PostItem({ post, isNested = false, isAuthenticated = false, author }: PostItemProps) {
   const [showReply, setShowReply] = useState(false)
 
   return (
     <div className={`border border-border rounded-lg p-4 ${isNested ? 'ml-8 mt-2' : 'mt-4'}`}>
       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-        <span className="font-medium text-foreground">Anonymous</span>
+        <span className="font-medium text-foreground">
+          {author?.username ?? 'Anonymous'}
+        </span>
+        {author?.credential_badge && (
+          <CredentialBadge credential={author.credential_badge} />
+        )}
         <span>·</span>
         <span>{formatRelativeTime(post.created_at)}</span>
       </div>

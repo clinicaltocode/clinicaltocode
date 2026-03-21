@@ -2,14 +2,16 @@ import { ArrowUp, MessageSquare } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import { formatRelativeTime } from '@/lib/forum/utils'
-import type { ForumThread } from '@/lib/forum/types'
+import type { ForumThread, AuthorMeta } from '@/lib/forum/types'
+import { CredentialBadge } from '@/components/profile/credential-badge'
 
 interface ThreadCardProps {
   thread: ForumThread
   categorySlug: string
+  author?: AuthorMeta | null  // optional — backward compatible
 }
 
-export function ThreadCard({ thread, categorySlug }: ThreadCardProps) {
+export function ThreadCard({ thread, categorySlug, author }: ThreadCardProps) {
   return (
     <article className="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors">
       <div className="flex items-start justify-between gap-4">
@@ -43,6 +45,15 @@ export function ThreadCard({ thread, categorySlug }: ThreadCardProps) {
           <MessageSquare className="h-4 w-4" />
           {thread.reply_count}
         </span>
+        {author && (
+          <>
+            <span className="flex items-center gap-1">
+              <span className="font-medium text-foreground">{author.username}</span>
+              <CredentialBadge credential={author.credential_badge} />
+            </span>
+            <span>·</span>
+          </>
+        )}
         <span>{formatRelativeTime(thread.created_at)}</span>
       </div>
     </article>
