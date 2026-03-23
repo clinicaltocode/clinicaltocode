@@ -10,6 +10,7 @@ import { ArticleBody } from '@/components/content/article-body'
 import { Badge } from '@/components/ui/badge'
 import { estimateReadTime } from '@/lib/read-time'
 import type { PortableTextBlock } from '@portabletext/react'
+import { AdSlot } from '@/components/ads/ad-slot'
 
 // params is a Promise in Next.js 15 App Router
 interface PageProps {
@@ -134,6 +135,13 @@ export default async function ArticleDetailPage({ params }: PageProps) {
       {article.body && article.body.length > 0 && (
         <ArticleBody value={article.body as PortableTextBlock[]} />
       )}
+
+      {/* Ad slot — after article body, before Forum CTA */}
+      <div className="max-w-[720px] mx-auto my-8">
+        <AdSlot
+          slotId={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE ?? 'placeholder'}
+        />
+      </div>
 
       {/* Forum CTA */}
       <div className="mt-12 pt-8 border-t border-[#e5e7eb] max-w-[720px] mx-auto">

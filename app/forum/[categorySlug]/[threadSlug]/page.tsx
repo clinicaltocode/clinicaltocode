@@ -9,6 +9,7 @@ import { getThreadWithPosts } from '@/lib/forum/queries'
 import { getProfilesByIds } from '@/lib/profile/queries'
 import { createClient } from '@/lib/supabase/server'
 import { formatRelativeTime } from '@/lib/forum/utils'
+import { AdSlot } from '@/components/ads/ad-slot'
 
 interface ThreadPageProps {
   params: Promise<{ categorySlug: string; threadSlug: string }>
@@ -141,6 +142,11 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
           )
         })}
       </section>
+
+      {/* Ad slot — between posts and reply form */}
+      <div className="my-8">
+        <AdSlot slotId={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE ?? 'placeholder'} />
+      </div>
 
       {/* Main reply form — for authenticated users */}
       <div className="mt-8">

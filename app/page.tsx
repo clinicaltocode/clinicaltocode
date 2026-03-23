@@ -1,3 +1,5 @@
+import { AdSlot } from '@/components/ads/ad-slot'
+
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -89,7 +91,12 @@ export default function HomePage() {
               perspectives are on the way.
             </p>
           </div>
-          <aside />
+          <aside>
+            <AdSlot
+              slotId={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE ?? 'placeholder'}
+              className="w-full"
+            />
+          </aside>
         </div>
       </main>
 
