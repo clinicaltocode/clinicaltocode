@@ -44,7 +44,7 @@
 
 ### Monetization
 
-- [ ] **MONEY-01**: Visitor can subscribe to the newsletter with double opt-in confirmation email (via Resend)
+- [x] **MONEY-01**: Visitor can subscribe to the newsletter with double opt-in confirmation email (via Resend)
 - [x] **MONEY-02**: Article and forum pages include reserved AdSense-ready ad slot containers (sized, no CLS) ready to activate
 
 ### Infrastructure
@@ -117,7 +117,7 @@
 | MOD-02 | Phase 6 | Complete |
 | MOD-03 | Phase 6 | Complete |
 | MOD-04 | Phase 6 | Complete |
-| MONEY-01 | Phase 7 | Pending |
+| MONEY-01 | Phase 7 | Complete |
 | MONEY-02 | Phase 7 | Complete |
 
 **Coverage:**
