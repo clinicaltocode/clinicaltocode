@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: Completed 06-07-PLAN.md
-last_updated: "2026-03-21T19:30:33.673Z"
+status: in-progress
+stopped_at: Completed 07-02-PLAN.md (ad slot infrastructure)
+last_updated: "2026-03-23T13:22:12.414Z"
 progress:
   total_phases: 7
   completed_phases: 4
-  total_plans: 21
-  completed_plans: 19
+  total_plans: 24
+  completed_plans: 21
 ---
 
 # Project State
@@ -18,7 +18,7 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Clinicians and healthcare IT professionals have a trusted place to both read real frontline perspectives AND have meaningful discussions with each other.
-**Current focus:** Phase 6 — Moderation (Phase 5 User Profiles complete)
+**Current focus:** Phase 7 — Monetization (Phase 6 Moderation complete)
 
 ## Roadmap Status
 
@@ -30,13 +30,13 @@ See: .planning/PROJECT.md (updated 2026-03-15)
 | 4 | Forum | ✅ Complete (all 6 plans, all FORUM requirements verified) |
 | 5 | User Profiles | ✅ Complete (all 5 plans, all PROF requirements verified) |
 | 6 | Moderation | ✅ Complete (all 6 plans, all MOD requirements verified) |
-| 7 | Monetization | Not Started |
+| 7 | Monetization | In Progress (Plan 02 complete) |
 
 ## Active Phase
-Phase 6 — Moderation (Plan 06 complete — Phase 6 complete)
+Phase 7 — Monetization (Plan 02 complete)
 
-**Last session:** 2026-03-21T19:30:02.787Z
-**Stopped at:** Completed 06-07-PLAN.md
+**Last session:** 2026-03-23T13:22:12.412Z
+**Stopped at:** Completed 07-02-PLAN.md (ad slot infrastructure)
 
 **Artifacts:**
 - `.planning/phases/03-content/03-PLAN.md` — 18 tasks, 8 waves (approved)
@@ -75,6 +75,10 @@ Phase 6 — Moderation (Plan 06 complete — Phase 6 complete)
 - `.planning/phases/06-moderation/06-05-SUMMARY.md` — execution summary
 - `.planning/phases/06-moderation/06-06-PLAN.md` — 2 tasks complete
 - `.planning/phases/06-moderation/06-06-SUMMARY.md` — execution summary
+- `.planning/phases/07-monetization/07-01-PLAN.md` — 2 tasks complete
+- `.planning/phases/07-monetization/07-01-SUMMARY.md` — execution summary
+- `.planning/phases/07-monetization/07-02-PLAN.md` — 2 tasks complete
+- `.planning/phases/07-monetization/07-02-SUMMARY.md` — execution summary
 
 ## Decisions Log
 
@@ -120,6 +124,12 @@ Phase 6 — Moderation (Plan 06 complete — Phase 6 complete)
 - Phase 6 (06-05): is_removed guard on thread detail page uses intermediate threadCheck variable — avoids destructuring before null check
 - Phase 6 (06-06): Admin layout re-checks is_admin via createClient() on every render — defense-in-depth beyond middleware guard
 - Phase 6 (06-06): Content and reports tab/filter state uses URL search params — bookmarkable, no JS required, fully accessible
+- Phase 7 (07-01): HMAC token stored as 64-char hex; timingSafeEqual used in verifyToken; try/catch returns false for invalid-length hex inputs without throwing
+- Phase 7 (07-01): Resend contact created as unsubscribed: true on subscribe; set to false only after HMAC confirmation — enforces double opt-in
+- Phase 7 (07-01): validation_error from Resend contacts.create treated as success (duplicate contact) so confirmation email is resent
+- Phase 7 (07-01): Confirm route fetches contact list then finds by email to obtain ID before contacts.update — avoids Resend SDK v4 email-vs-id ambiguity
+- Phase 7 (07-02): Inline style for minWidth/minHeight on ad wrapper div (not Tailwind) — Google-official CLS prevention technique
+- Phase 7 (07-02): AdSense Script tag guarded by NEXT_PUBLIC_ADSENSE_CLIENT_ID — prevents 400 errors in development before publisher account activation
 
 ## Notes
 

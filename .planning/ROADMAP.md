@@ -12,7 +12,7 @@
 | 4 | 6/6 | Complete   | 2026-03-21 |
 | 5 | 5/5 | Complete   | 2026-03-21 |
 | 6 | 7/7 | Complete   | 2026-03-21 |
-| 7 | Monetization | Wire newsletter signup and reserve AdSense ad slots | MONEY-01, MONEY-02 |
+| 7 | 2/3 | In Progress|  |
 
 ---
 
@@ -120,7 +120,7 @@ Plans:
 ### Phase 7: Monetization
 **Goal:** Wire newsletter signup with double opt-in and add properly sized ad slot containers to article and forum pages ready for AdSense activation.
 **Requirements:** MONEY-01, MONEY-02
-**Plans:** 3 plans
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 07-01-PLAN.md — Wave 0 test stubs + resend install + HMAC token lib + newsletter Route Handlers (POST subscribe, GET confirm) + /newsletter/confirmed page
