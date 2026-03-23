@@ -1,4 +1,5 @@
 import { AdSlot } from '@/components/ads/ad-slot'
+import { NewsletterSignup } from '@/components/newsletter/newsletter-signup'
 
 export default function HomePage() {
   return (
@@ -92,6 +93,7 @@ export default function HomePage() {
             </p>
           </div>
           <aside>
+            <NewsletterSignup className="mb-6" />
             <AdSlot
               slotId={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE ?? 'placeholder'}
               className="w-full"
