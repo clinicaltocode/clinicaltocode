@@ -120,6 +120,13 @@ Plans:
 ### Phase 7: Monetization
 **Goal:** Wire newsletter signup with double opt-in and add properly sized ad slot containers to article and forum pages ready for AdSense activation.
 **Requirements:** MONEY-01, MONEY-02
+**Plans:** 3 plans
+
+Plans:
+- [ ] 07-01-PLAN.md — Wave 0 test stubs + resend install + HMAC token lib + newsletter Route Handlers (POST subscribe, GET confirm) + /newsletter/confirmed page
+- [ ] 07-02-PLAN.md — AdSlot component + AdSense Script in root layout + ad slot placements on article, forum thread, and homepage pages
+- [ ] 07-03-PLAN.md — NewsletterSignup client component + wire into homepage aside and article page + human-verify checkpoint
+
 **Success Criteria:**
 1. A visitor submits their email on the newsletter signup form, receives a confirmation email via Resend, and clicking the confirmation link subscribes them (double opt-in complete).
 2. Article pages and the homepage include clearly defined, fixed-height `<div>` ad slot containers that do not cause Cumulative Layout Shift (CLS score 0 in Lighthouse).
