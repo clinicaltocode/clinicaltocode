@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { AdSlot } from '@/components/ads/ad-slot'
 import { NewsletterSignup } from '@/components/newsletter/newsletter-signup'
 
@@ -17,20 +18,20 @@ export default function HomePage() {
             Clinical to Code
           </span>
           <div className="flex items-center gap-6">
-            <a
+            <Link
               href="/articles"
               className="text-sm transition-colors min-h-[48px] flex items-center"
               style={{ color: '#666666' }}
             >
               Articles
-            </a>
-            <a
+            </Link>
+            <Link
               href="/forum"
               className="text-sm transition-colors min-h-[48px] flex items-center"
               style={{ color: '#666666' }}
             >
               Forum
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -55,14 +56,14 @@ export default function HomePage() {
             clinicians for IT leaders.
           </p>
           <div className="flex items-center justify-center gap-4">
-            <a
+            <Link
               href="/articles"
               className="inline-flex items-center justify-center rounded-md font-semibold min-h-[48px] px-6"
               style={{ backgroundColor: '#ffffff', color: '#0066cc' }}
             >
               Explore Articles
-            </a>
-            <a
+            </Link>
+            <Link
               href="/forum"
               className="inline-flex items-center justify-center rounded-md font-semibold min-h-[48px] px-6"
               style={{
@@ -72,7 +73,7 @@ export default function HomePage() {
               }}
             >
               Join the Community
-            </a>
+            </Link>
           </div>
         </div>
       </section>

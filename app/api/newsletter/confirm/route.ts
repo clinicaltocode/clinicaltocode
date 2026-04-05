@@ -3,9 +3,8 @@ import { redirect } from 'next/navigation'
 import { Resend } from 'resend'
 import { verifyToken } from '@/lib/newsletter/token'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function GET(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   const { searchParams } = request.nextUrl
   const email = searchParams.get('email') ?? ''
   const token = searchParams.get('token') ?? ''
