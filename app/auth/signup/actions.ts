@@ -42,8 +42,8 @@ export async function signUp(
         error: 'An account with this email already exists. Try logging in.',
       }
     }
-    // Return a generic message — do not expose Supabase internals to the user
-    return { error: 'Something went wrong. Please try again.' }
+    // Temporary: expose real error for debugging
+    return { error: `Auth error: ${error.message} (code: ${error.code})` }
   }
 
   // Redirect to the "check your email" page.
