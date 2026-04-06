@@ -7,7 +7,7 @@ import Link from 'next/link'
 // Because both flows land here, the page text covers both cases.
 export default function ConfirmPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f9fafb]">
+    <div className="flex-1 flex items-center justify-center bg-[#f9fafb] py-12">
       <div className="w-full max-w-md bg-white rounded-lg shadow-sm border border-[#e5e7eb] p-8 text-center">
         <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg

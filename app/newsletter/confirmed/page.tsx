@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function NewsletterConfirmedPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-5">
+    <div className="flex-1 flex flex-col items-center justify-center px-5 py-12">
       <div className="max-w-[480px] text-center">
         <h1
           className="font-semibold mb-4"

@@ -4,38 +4,7 @@ import { NewsletterSignup } from '@/components/newsletter/newsletter-signup'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Nav — sticky, 72px height, white background, border-b */}
-      <nav
-        className="sticky top-0 z-50 bg-white border-b h-[72px] flex items-center"
-        style={{ borderColor: '#e5e7eb' }}
-      >
-        <div
-          className="mx-auto px-5 w-full flex items-center justify-between"
-          style={{ maxWidth: '1200px' }}
-        >
-          <span className="font-semibold text-xl" style={{ color: '#0066cc' }}>
-            Clinical to Code
-          </span>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/articles"
-              className="text-sm transition-colors min-h-[48px] flex items-center"
-              style={{ color: '#666666' }}
-            >
-              Articles
-            </Link>
-            <Link
-              href="/forum"
-              className="text-sm transition-colors min-h-[48px] flex items-center"
-              style={{ color: '#666666' }}
-            >
-              Forum
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+    <>
       {/* Hero — full-width gradient, centered text, two CTAs */}
       <section
         className="text-white text-center"
@@ -102,27 +71,6 @@ export default function HomePage() {
           </aside>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer
-        className="text-white"
-        style={{
-          backgroundColor: '#1a1a1a',
-          paddingTop: '64px',
-          paddingBottom: '32px',
-          marginTop: '80px',
-        }}
-      >
-        <div
-          className="mx-auto px-5"
-          style={{ maxWidth: '1200px' }}
-        >
-          <p className="text-sm" style={{ color: '#666666' }}>
-            &copy; {new Date().getFullYear()} Clinical to Code. All rights
-            reserved.
-          </p>
-        </div>
-      </footer>
-    </div>
+    </>
   )
 }

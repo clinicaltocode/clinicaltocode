@@ -24,7 +24,7 @@ export default function SignUpPage() {
   const [state, formAction] = useActionState(signUp, initialState)
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f9fafb]">
+    <div className="flex-1 flex items-center justify-center bg-[#f9fafb] py-12">
       <div className="w-full max-w-md bg-white rounded-lg shadow-sm border border-[#e5e7eb] p-8">
         <h1 className="text-2xl font-semibold mb-2">Create an account</h1>
         <p className="text-sm text-[#666666] mb-6">
