@@ -18,6 +18,7 @@ export interface ForumThread {
   author_id: string | null
   vote_count: number
   reply_count: number
+  is_pinned: boolean
   is_removed: boolean
   created_at: string
   updated_at: string

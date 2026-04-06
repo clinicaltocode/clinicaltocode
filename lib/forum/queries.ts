@@ -21,6 +21,7 @@ export async function getThreadsByCategory(categorySlug: string): Promise<ForumT
     .select('*, forum_categories!inner(title, slug)')
     .eq('forum_categories.slug', categorySlug)
     .eq('is_removed', false)
+    .order('is_pinned', { ascending: false })
     .order('created_at', { ascending: false })
     .limit(50)
 

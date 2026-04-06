@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowUp, MessageSquare } from 'lucide-react'
+import { ArrowUp, MessageSquare, Pin } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import { formatRelativeTime } from '@/lib/forum/utils'
@@ -22,6 +22,12 @@ export function ThreadCard({ thread, categorySlug, author, currentUserId, isAuth
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
+            {thread.is_pinned && (
+              <Badge variant="outline" className="text-xs shrink-0 border-primary text-primary">
+                <Pin className="h-3 w-3 mr-1" />
+                Pinned
+              </Badge>
+            )}
             {thread.is_article_thread && (
               <Badge variant="secondary" className="text-xs shrink-0">
                 Article Discussion
