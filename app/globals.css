@@ -5,61 +5,48 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Hero gradient stops — not in shadcn system, direct tokens */
-  --color-hero-from: #667eea;
-  --color-hero-to: #764ba2;
-
-  /* System font stack — overrides shadcn's default (no Google Fonts) */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
-}
-
-/* Ensure primary-dark is available for hover states */
-:root {
-  --primary-dark: #0052a3;
-}
-
-body {
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  color: #1a1a1a;
-  background-color: #ffffff;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  /* Brand overrides — maps shadcn system to Clinical to Code brand */
-  --primary: #0066cc;
+  /* Brand — editorial dark green */
+  --primary: #1a6847;
+  --primary-dark: #134e35;
   --primary-foreground: #ffffff;
-  --secondary: #00a86b;
-  --secondary-foreground: #ffffff;
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: #f4f1ec;
+  --secondary-foreground: #1a1a1a;
+
+  --background: oklch(1 0 0);
+  --foreground: #1a1a1a;
+  --card: oklch(1 0 0);
+  --card-foreground: #1a1a1a;
+  --popover: oklch(1 0 0);
+  --popover-foreground: #1a1a1a;
+  --muted: #f4f1ec;
+  --muted-foreground: #6b6b6b;
+  --accent: #f4f1ec;
+  --accent-foreground: #1a1a1a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #e0dcd5;
+  --input: #e0dcd5;
+  --ring: #1a6847;
+  --radius: 0.375rem;
+
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
-  --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #1a1a1a;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e0dcd5;
+  --sidebar-ring: #1a6847;
 }
 
 .dark {
@@ -81,11 +68,6 @@ body {
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -98,6 +80,7 @@ body {
 
 @theme inline {
   --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -144,6 +127,8 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    line-height: 1.6;
   }
   html {
     @apply font-sans;

@@ -1,12 +1,5 @@
 'use client'
 
-// ArticleBody must be a Client Component because PortableText uses hooks
-// internally. The `value` prop is plain JSON (serializable) so it can be
-// passed from the Server Component parent with no issues.
-//
-// portableTextComponents is defined outside the component to prevent
-// the object reference from changing on every render pass.
-
 import { PortableText } from '@portabletext/react'
 import type {
   PortableTextBlock,
@@ -29,7 +22,7 @@ const portableTextComponents: Partial<PortableTextReactComponents> = {
       <img
         src={urlFor(value).width(800).auto('format').url()}
         alt={value.alt ?? ''}
-        className="rounded-xl my-6 w-full"
+        className="my-8 w-full"
       />
     ),
   },
@@ -39,46 +32,46 @@ const portableTextComponents: Partial<PortableTextReactComponents> = {
         href={value?.href}
         target={value?.blank ? '_blank' : undefined}
         rel={value?.blank ? 'noopener noreferrer' : undefined}
-        className="text-primary underline hover:text-primary-dark"
+        className="text-primary underline underline-offset-2 hover:text-primary-dark"
       >
         {children}
       </a>
     )) as AnyComponent,
     code: (({ children }: { children: React.ReactNode }) => (
-      <code className="bg-gray-100 px-1 py-1 rounded text-sm font-mono">
+      <code className="bg-[#f4f1ec] px-1.5 py-0.5 rounded text-[0.9em] font-mono">
         {children}
       </code>
     )) as AnyComponent,
   },
   block: {
     normal: (({ children }) => (
-      <p className="text-base leading-relaxed text-[#1a1a1a] mb-4">{children}</p>
+      <p className="text-lg leading-[1.8] text-[#1a1a1a] mb-6">{children}</p>
     )) as PortableTextBlockComponent,
     h2: (({ children }) => (
-      <h2 className="text-xl font-semibold mt-8 mb-3 text-[#1a1a1a]">{children}</h2>
+      <h2 className="font-serif text-2xl font-bold mt-12 mb-4 text-[#1a1a1a]">{children}</h2>
     )) as PortableTextBlockComponent,
     h3: (({ children }) => (
-      <h3 className="text-xl font-semibold mt-6 mb-2 text-[#1a1a1a]">{children}</h3>
+      <h3 className="font-serif text-xl font-bold mt-8 mb-3 text-[#1a1a1a]">{children}</h3>
     )) as PortableTextBlockComponent,
     blockquote: (({ children }) => (
-      <blockquote className="border-l-4 border-primary pl-4 italic my-4 text-[#666666]">
+      <blockquote className="border-l-[3px] border-primary pl-6 my-8 text-xl font-serif italic text-[#4a4a4a] leading-relaxed">
         {children}
       </blockquote>
     )) as PortableTextBlockComponent,
   },
   list: {
     bullet: (({ children }) => (
-      <ul className="list-disc list-inside mb-4 space-y-1">{children}</ul>
+      <ul className="list-disc pl-6 mb-6 space-y-2 text-lg leading-[1.8]">{children}</ul>
     )) as PortableTextListComponent,
     number: (({ children }) => (
-      <ol className="list-decimal list-inside mb-4 space-y-1">{children}</ol>
+      <ol className="list-decimal pl-6 mb-6 space-y-2 text-lg leading-[1.8]">{children}</ol>
     )) as PortableTextListComponent,
   },
 }
 
 export function ArticleBody({ value }: ArticleBodyProps) {
   return (
-    <div className="max-w-[720px] mx-auto">
+    <div className="max-w-[680px] mx-auto">
       <PortableText value={value} components={portableTextComponents} />
     </div>
   )

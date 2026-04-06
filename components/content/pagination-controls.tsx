@@ -2,10 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
-interface PaginationControlsProps {
-  currentPage: number
-  totalPages: number
-}
+interface PaginationControlsProps { currentPage: number; totalPages: number }
 
 export function PaginationControls({ currentPage, totalPages }: PaginationControlsProps) {
   const router = useRouter()
@@ -17,35 +14,22 @@ export function PaginationControls({ currentPage, totalPages }: PaginationContro
     router.push(`/articles?${params.toString()}`)
   }
 
-  const isFirst = currentPage <= 1
-  const isLast  = currentPage >= totalPages
-
   return (
-    <div className="flex items-center justify-between mt-12">
+    <div className="flex items-center justify-between mt-16 pt-8 border-t border-[#e0dcd5]">
       <button
         onClick={() => navigate(currentPage - 1)}
-        disabled={isFirst}
-        className={`min-h-[48px] border border-[#e5e7eb] px-4 rounded-md text-sm transition-opacity ${
-          isFirst ? 'opacity-50 cursor-not-allowed' : 'hover:border-primary/50'
-        }`}
-        aria-label="Previous page"
+        disabled={currentPage <= 1}
+        className="text-sm text-[#6b6b6b] hover:text-[#1a1a1a] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
       >
-        Previous
+        &larr; Previous
       </button>
-
-      <span className="text-sm text-[#666666]">
-        Page {currentPage} of {totalPages}
-      </span>
-
+      <span className="text-sm text-[#6b6b6b]">{currentPage} / {totalPages}</span>
       <button
         onClick={() => navigate(currentPage + 1)}
-        disabled={isLast}
-        className={`min-h-[48px] border border-[#e5e7eb] px-4 rounded-md text-sm transition-opacity ${
-          isLast ? 'opacity-50 cursor-not-allowed' : 'hover:border-primary/50'
-        }`}
-        aria-label="Next page"
+        disabled={currentPage >= totalPages}
+        className="text-sm text-[#6b6b6b] hover:text-[#1a1a1a] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
       >
-        Next
+        Next &rarr;
       </button>
     </div>
   )

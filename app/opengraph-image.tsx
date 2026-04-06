@@ -10,36 +10,22 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: '#faf9f7',
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '60px',
+          padding: '80px',
+          borderTop: '8px solid #1a6847',
         }}
       >
-        <div
-          style={{
-            fontSize: 64,
-            fontWeight: 700,
-            color: '#ffffff',
-            textAlign: 'center',
-            lineHeight: 1.2,
-            marginBottom: 24,
-          }}
-        >
+        <div style={{ fontSize: 72, fontWeight: 700, color: '#1a1a1a', textAlign: 'center', lineHeight: 1.1, fontFamily: 'Georgia, serif' }}>
           Clinical to Code
         </div>
-        <div
-          style={{
-            fontSize: 28,
-            color: 'rgba(255,255,255,0.9)',
-            textAlign: 'center',
-          }}
-        >
-          Where Healthcare Meets Technology
+        <div style={{ fontSize: 28, color: '#6b6b6b', textAlign: 'center', marginTop: 24, letterSpacing: '0.05em' }}>
+          WHERE HEALTHCARE MEETS TECHNOLOGY
         </div>
       </div>
     ),

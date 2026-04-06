@@ -2,13 +2,8 @@
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
-interface Category {
-  title: string
-  slug: string
-}
-
 interface CategoryFilterProps {
-  categories: Category[]
+  categories: { title: string; slug: string }[]
   activeCategory: string | null
 }
 
@@ -18,38 +13,33 @@ export function CategoryFilter({ categories, activeCategory }: CategoryFilterPro
 
   function handleSelect(slug: string | null) {
     const params = new URLSearchParams(searchParams.toString())
-    if (slug) {
-      params.set('category', slug)
-    } else {
-      params.delete('category')
-    }
-    // Reset to page 1 when changing category filter
+    if (slug) { params.set('category', slug) } else { params.delete('category') }
     params.delete('page')
     router.push(`/articles?${params.toString()}`)
   }
 
   return (
-    <div className="flex gap-2 flex-wrap mt-4" role="group" aria-label="Filter by category">
+    <div className="flex gap-3 flex-wrap mt-6" role="group" aria-label="Filter by category">
       <button
         onClick={() => handleSelect(null)}
         aria-pressed={activeCategory === null}
-        className={`min-h-[48px] px-4 rounded-full text-sm font-semibold transition-colors ${
+        className={`px-4 py-2 text-sm transition-colors border-b-2 ${
           activeCategory === null
-            ? 'bg-primary text-white'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            ? 'border-primary text-primary font-semibold'
+            : 'border-transparent text-[#6b6b6b] hover:text-[#1a1a1a]'
         }`}
       >
-        All categories
+        All
       </button>
       {categories.map(cat => (
         <button
           key={cat.slug}
           onClick={() => handleSelect(cat.slug)}
           aria-pressed={activeCategory === cat.slug}
-          className={`min-h-[48px] px-4 rounded-full text-sm font-semibold transition-colors ${
+          className={`px-4 py-2 text-sm transition-colors border-b-2 ${
             activeCategory === cat.slug
-              ? 'bg-primary text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ? 'border-primary text-primary font-semibold'
+              : 'border-transparent text-[#6b6b6b] hover:text-[#1a1a1a]'
           }`}
         >
           {cat.title}
