@@ -26,10 +26,11 @@ export async function sanityFetch<T>({
   return clientFetch(query, params, {
     cache: 'force-cache',
     next: {
-      // When tags are provided, disable time-based revalidation and rely
-      // solely on on-demand revalidation via revalidateTag() in the
-      // webhook handler. Without tags, fall back to ISR every 60s.
-      revalidate: tags.length ? false : (revalidate ?? 60),
+      // Use on-demand revalidation via tags (webhook handler calls
+      // revalidateTag), with a time-based fallback of 60s so the cache
+      // still refreshes when content is added outside of webhooks
+      // (e.g. seed scripts, direct API writes).
+      revalidate: revalidate ?? 60,
       tags,
     },
   })
