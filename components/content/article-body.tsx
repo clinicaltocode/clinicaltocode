@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import type {
   PortableTextBlock,
@@ -19,11 +20,15 @@ type AnyComponent = any
 const portableTextComponents: Partial<PortableTextReactComponents> = {
   types: {
     image: ({ value }: { value: { alt?: string; crop?: unknown; hotspot?: unknown; asset?: { url?: string } } }) => (
-      <img
-        src={urlFor(value).width(800).auto('format').url()}
-        alt={value.alt ?? ''}
-        className="my-8 w-full"
-      />
+      <div className="my-8 relative aspect-[3/2]">
+        <Image
+          src={urlFor(value).width(800).auto('format').url()}
+          alt={value.alt ?? ''}
+          fill
+          sizes="(max-width: 680px) 100vw, 680px"
+          className="object-contain"
+        />
+      </div>
     ),
   },
   marks: {

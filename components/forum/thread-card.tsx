@@ -18,12 +18,12 @@ interface ThreadCardProps {
 
 export function ThreadCard({ thread, categorySlug, author, currentUserId, isAuthenticated = false }: ThreadCardProps) {
   return (
-    <article className="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+    <article className="border border-[#e0dcd5] rounded-lg p-4 hover:bg-[#faf8f5] transition-colors">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             {thread.is_pinned && (
-              <Badge variant="outline" className="text-xs shrink-0 border-primary text-primary">
+              <Badge variant="outline" className="text-xs shrink-0 border-[#1a6847] text-[#1a6847]">
                 <Pin className="h-3 w-3 mr-1" />
                 Pinned
               </Badge>
@@ -36,18 +36,18 @@ export function ThreadCard({ thread, categorySlug, author, currentUserId, isAuth
           </div>
           <Link
             href={`/forum/${categorySlug}/${thread.slug}`}
-            className="text-base font-semibold hover:text-primary transition-colors line-clamp-2"
+            className="font-serif text-base font-semibold hover:text-[#1a6847] transition-colors line-clamp-2"
           >
             {thread.title}
           </Link>
           {thread.body_preview && (
-            <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+            <p className="text-sm text-[#6b6b6b] mt-1 line-clamp-2">
               {thread.body_preview}
             </p>
           )}
         </div>
       </div>
-      <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
+      <div className="flex items-center gap-4 mt-3 text-sm text-[#6b6b6b]">
         <span className="flex items-center gap-1">
           <ArrowUp className="h-4 w-4" />
           {thread.vote_count}
@@ -59,7 +59,7 @@ export function ThreadCard({ thread, categorySlug, author, currentUserId, isAuth
         {author && (
           <>
             <span className="flex items-center gap-1">
-              <span className="font-medium text-foreground">{author.username}</span>
+              <span className="font-medium text-[#1a1a1a]">{author.username}</span>
               <CredentialBadge credential={author.credential_badge} />
             </span>
             <span>·</span>

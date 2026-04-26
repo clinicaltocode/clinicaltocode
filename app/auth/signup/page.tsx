@@ -33,6 +33,24 @@ export default function SignUpPage() {
 
         <form action={formAction} className="space-y-4">
           <div>
+            <label htmlFor="username" className="block text-sm font-medium mb-1">
+              Username
+            </label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              required
+              minLength={3}
+              maxLength={30}
+              pattern="[a-zA-Z0-9_-]+"
+              autoComplete="username"
+              className="w-full border border-[#e5e7eb] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <p className="text-xs text-[#666666] mt-1">Letters, numbers, hyphens, underscores. 3-30 characters.</p>
+          </div>
+
+          <div>
             <label htmlFor="email" className="block text-sm font-medium mb-1">
               Email
             </label>

@@ -18,8 +18,8 @@ export default async function NewThreadPage({ searchParams }: NewThreadPageProps
   const categories = await getCategories()
 
   return (
-    <main className="container mx-auto px-4 py-8 max-w-2xl">
-      <h1 className="text-2xl font-bold mb-6">Start a New Thread</h1>
+    <main className="mx-auto px-6 py-12 max-w-2xl">
+      <h1 className="font-serif text-2xl font-bold text-[#1a1a1a] mb-6">Start a New Thread</h1>
       <NewThreadForm categories={categories} defaultCategoryId={category} />
     </main>
   )

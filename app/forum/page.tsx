@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { buttonVariants } from '@/components/ui/button-variants'
 import { getCategories } from '@/lib/forum/queries'
 import { createClient } from '@/lib/supabase/server'
 import { GuidelinesBanner } from '@/components/forum/guidelines-banner'
@@ -16,20 +15,20 @@ export default async function ForumPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   return (
-    <main className="container mx-auto px-4 py-8 max-w-4xl">
+    <main className="mx-auto px-6 py-12 max-w-4xl">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold">Forum</h1>
-          <p className="text-muted-foreground mt-1">
+          <h1 className="font-serif text-3xl font-bold text-[#1a1a1a]">Forum</h1>
+          <p className="text-[#6b6b6b] mt-1">
             Clinical discussions for healthcare professionals
           </p>
         </div>
         {user ? (
-          <Link href="/forum/new" className={buttonVariants()}>
+          <Link href="/forum/new" className="bg-[#1a6847] text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-[#134e35] transition-colors">
             New Thread
           </Link>
         ) : (
-          <Link href="/auth/login" className={buttonVariants({ variant: 'outline' })}>
+          <Link href="/auth/login" className="border border-[#e0dcd5] text-[#1a1a1a] text-sm font-medium px-4 py-2 rounded-md hover:bg-[#f4f1ec] transition-colors">
             Sign in to post
           </Link>
         )}
@@ -42,18 +41,18 @@ export default async function ForumPage() {
           <Link
             key={category.id}
             href={`/forum/${category.slug}`}
-            className="block border border-border rounded-lg p-5 hover:bg-muted/50 transition-colors"
+            className="block border border-[#e0dcd5] rounded-lg p-5 hover:bg-[#faf8f5] transition-colors"
           >
-            <h2 className="text-lg font-semibold">{category.title}</h2>
+            <h2 className="font-serif text-lg font-semibold text-[#1a1a1a]">{category.title}</h2>
             {category.description && (
-              <p className="text-sm text-muted-foreground mt-1">{category.description}</p>
+              <p className="text-sm text-[#6b6b6b] mt-1">{category.description}</p>
             )}
           </Link>
         ))}
       </div>
 
       {categories.length === 0 && (
-        <p className="text-center text-muted-foreground py-12">
+        <p className="text-center text-[#6b6b6b] py-12">
           No categories found. Run the database migration to seed categories.
         </p>
       )}

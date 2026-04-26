@@ -1,21 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { ARTICLES_QUERY } from '@/lib/sanity/queries'
+import type { SanityArticle } from '@/lib/sanity/types'
 import { NewsletterSignup } from '@/components/newsletter/newsletter-signup'
 
-interface Article {
-  _id: string
-  title: string
-  slug: string
-  publishedAt: string
-  excerpt?: string
-  coverImage?: { asset?: { url: string }; alt?: string }
-  category?: { title: string; slug: string }
-  author?: { name: string; credential?: string }
-}
-
 export default async function HomePage() {
-  const articles = await sanityFetch<Article[]>({
+  const articles = await sanityFetch<SanityArticle[]>({
     query: ARTICLES_QUERY,
     params: { start: 0, end: 5, category: null },
     tags: ['article'],
@@ -47,15 +38,20 @@ export default async function HomePage() {
               <article className="mb-16">
                 <Link href={`/articles/${featured.slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                   {featured.coverImage?.asset?.url ? (
-                    <div className="aspect-[3/2] overflow-hidden rounded-lg bg-[#f4f1ec]">
-                      <img
+                    <div className="aspect-[3/2] overflow-hidden rounded-lg bg-[#f4f1ec] relative">
+                      <Image
                         src={`${featured.coverImage.asset.url}?w=800&auto=format`}
                         alt={featured.coverImage.alt ?? featured.title}
-                        className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                        priority
                       />
                     </div>
                   ) : (
-                    <div className="aspect-[3/2] rounded-lg bg-[#e8e4dd]" />
+                    <div className="aspect-[3/2] rounded-lg bg-[#f4f1ec] relative overflow-hidden">
+                      <Image src="/images/article-placeholder.svg" alt="" fill className="object-cover" />
+                    </div>
                   )}
                   <div>
                     {featured.category && (
@@ -88,15 +84,19 @@ export default async function HomePage() {
                     <article key={article._id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                       <Link href={`/articles/${article.slug}`} className="group block">
                         {article.coverImage?.asset?.url ? (
-                          <div className="aspect-[3/2] overflow-hidden bg-[#f4f1ec]">
-                            <img
+                          <div className="aspect-[3/2] overflow-hidden bg-[#f4f1ec] relative">
+                            <Image
                               src={`${article.coverImage.asset.url}?w=480&auto=format`}
                               alt={article.coverImage.alt ?? article.title}
-                              className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                              fill
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                              className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
                             />
                           </div>
                         ) : (
-                          <div className="aspect-[3/2] bg-[#e8e4dd]" />
+                          <div className="aspect-[3/2] bg-[#f4f1ec] relative overflow-hidden">
+                            <Image src="/images/article-placeholder.svg" alt="" fill className="object-cover" />
+                          </div>
                         )}
                         <div className="p-5">
                           {article.category && (

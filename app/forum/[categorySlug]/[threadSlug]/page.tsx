@@ -56,16 +56,16 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
   }
 
   return (
-    <main className="container mx-auto px-4 py-8 max-w-3xl">
+    <main className="mx-auto px-6 py-12 max-w-3xl">
       {/* Breadcrumb */}
-      <nav className="text-sm text-muted-foreground mb-4">
-        <Link href="/forum" className="hover:text-foreground">Forum</Link>
+      <nav className="text-sm text-[#6b6b6b] mb-4">
+        <Link href="/forum" className="hover:text-[#1a1a1a] transition-colors">Forum</Link>
         {thread.forum_categories && (
           <>
             {' / '}
             <Link
               href={`/forum/${categorySlug}`}
-              className="hover:text-foreground"
+              className="hover:text-[#1a1a1a] transition-colors"
             >
               {thread.forum_categories.title}
             </Link>
@@ -75,8 +75,8 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
 
       {/* Thread header */}
       <article>
-        <h1 className="text-2xl font-bold mb-2">{thread.title}</h1>
-        <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
+        <h1 className="font-serif text-2xl font-bold text-[#1a1a1a] mb-2">{thread.title}</h1>
+        <div className="flex items-center gap-3 text-sm text-[#6b6b6b] mb-2">
           <VoteButton
             targetId={thread.id}
             targetType="thread"
@@ -95,15 +95,15 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
           />
         </div>
         {thread.author_id && profilesById[thread.author_id] && (
-          <div className="flex items-center gap-1 text-sm text-muted-foreground mb-4">
-            <span className="font-medium text-foreground">
+          <div className="flex items-center gap-1 text-sm text-[#6b6b6b] mb-4">
+            <span className="font-medium text-[#1a1a1a]">
               {profilesById[thread.author_id].username}
             </span>
             <CredentialBadge credential={profilesById[thread.author_id].credential_badge} />
           </div>
         )}
         {thread.body_preview && (
-          <div className="prose prose-sm max-w-none border border-border rounded-lg p-4 bg-muted/30 mb-6">
+          <div className="max-w-none border border-[#e0dcd5] rounded-lg p-4 bg-[#faf8f5] mb-6 text-[#1a1a1a] leading-relaxed">
             <p>{thread.body_preview}</p>
           </div>
         )}
@@ -116,7 +116,7 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
         </h2>
 
         {topPosts.length === 0 && (
-          <p className="text-muted-foreground text-sm py-4">
+          <p className="text-[#6b6b6b] text-sm py-4">
             No replies yet. Sign in to start the discussion.
           </p>
         )}
@@ -156,13 +156,13 @@ export default async function ThreadPage({ params }: ThreadPageProps) {
             <ReplyForm threadId={thread.id} />
           </div>
         ) : (
-          <div className="text-center py-6 border border-border rounded-lg">
-            <p className="text-sm text-muted-foreground mb-3">
+          <div className="text-center py-6 border border-[#e0dcd5] rounded-lg">
+            <p className="text-sm text-[#6b6b6b] mb-3">
               Sign in to join the discussion
             </p>
             <a
               href="/auth/login"
-              className="text-sm font-medium text-primary hover:underline"
+              className="text-sm font-medium text-[#1a6847] hover:underline"
             >
               Sign in
             </a>

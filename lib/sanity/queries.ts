@@ -66,7 +66,7 @@ export const ARTICLE_BY_SLUG_QUERY = `
     excerpt,
     "coverImage": coverImage { asset->{ url }, alt, crop, hotspot },
     "category": category->{ title, "slug": slug.current },
-    "author": author->{ name, credential },
+    "author": author->{ name, credential, bio, "slug": slug.current, "avatarUrl": avatar.asset->url },
     tags,
     body
   }

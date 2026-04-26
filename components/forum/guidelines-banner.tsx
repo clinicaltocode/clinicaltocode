@@ -30,14 +30,14 @@ export function GuidelinesBanner() {
   if (!mounted || !visible) return null
 
   return (
-    <div className="w-full bg-muted border-b border-border">
-      <div className="container mx-auto px-4 py-2.5 max-w-4xl flex items-center gap-3">
-        <BookOpen className="h-4 w-4 text-muted-foreground shrink-0" aria-hidden="true" />
-        <p className="text-sm flex-1">
+    <div className="w-full bg-[#f4f1ec] border-b border-[#e0dcd5]">
+      <div className="mx-auto px-6 py-2.5 max-w-4xl flex items-center gap-3">
+        <BookOpen className="h-4 w-4 text-[#6b6b6b] shrink-0" aria-hidden="true" />
+        <p className="text-sm flex-1 text-[#1a1a1a]">
           New here? Read our{' '}
           <Link
             href="/community-guidelines"
-            className="underline hover:text-primary transition-colors"
+            className="underline hover:text-[#1a6847] transition-colors"
           >
             Community Guidelines
           </Link>{' '}
@@ -46,7 +46,7 @@ export function GuidelinesBanner() {
         <button
           onClick={handleDismiss}
           aria-label="Dismiss guidelines banner"
-          className="h-[44px] w-[44px] flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors shrink-0"
+          className="h-[44px] w-[44px] flex items-center justify-center text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors shrink-0"
         >
           <X className="h-4 w-4" aria-hidden="true" />
         </button>

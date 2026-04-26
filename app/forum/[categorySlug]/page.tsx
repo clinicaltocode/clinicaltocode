@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { buttonVariants } from '@/components/ui/button-variants'
 import { ThreadCard } from '@/components/forum/thread-card'
 import { getCategories, getThreadsByCategory } from '@/lib/forum/queries'
 import { getProfilesByIds } from '@/lib/profile/queries'
@@ -31,20 +30,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const profilesById = await getProfilesByIds(authorIds)
 
   return (
-    <main className="container mx-auto px-4 py-8 max-w-4xl">
+    <main className="mx-auto px-6 py-12 max-w-4xl">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <nav className="text-sm text-muted-foreground mb-1">
-            <Link href="/forum" className="hover:text-foreground">Forum</Link>
+          <nav className="text-sm text-[#6b6b6b] mb-1">
+            <Link href="/forum" className="hover:text-[#1a1a1a] transition-colors">Forum</Link>
             {' / '}
             <span>{category.title}</span>
           </nav>
-          <h1 className="text-2xl font-bold">{category.title}</h1>
+          <h1 className="font-serif text-2xl font-bold text-[#1a1a1a]">{category.title}</h1>
           {category.description && (
-            <p className="text-muted-foreground text-sm mt-1">{category.description}</p>
+            <p className="text-[#6b6b6b] text-sm mt-1">{category.description}</p>
           )}
         </div>
-        <Link href={`/forum/new?category=${category.id}`} className={buttonVariants()}>
+        <Link href={`/forum/new?category=${category.id}`} className="bg-[#1a6847] text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-[#134e35] transition-colors">
           New Thread
         </Link>
       </div>
@@ -61,9 +60,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </div>
 
       {threads.length === 0 && (
-        <div className="text-center py-12 text-muted-foreground">
+        <div className="text-center py-12 text-[#6b6b6b]">
           <p>No threads yet. Be the first to start a discussion!</p>
-          <Link href={`/forum/new?category=${category.id}`} className={`${buttonVariants()} mt-4`}>
+          <Link href={`/forum/new?category=${category.id}`} className="inline-block mt-4 bg-[#1a6847] text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-[#134e35] transition-colors">
             Start a Thread
           </Link>
         </div>

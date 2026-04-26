@@ -9,7 +9,17 @@ export async function signUp(
 ) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
+  const username = (formData.get('username') as string)?.trim()
 
+  if (!username || username.length < 3) {
+    return { error: 'Username must be at least 3 characters.' }
+  }
+  if (username.length > 30) {
+    return { error: 'Username must be under 30 characters.' }
+  }
+  if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+    return { error: 'Username can only contain letters, numbers, hyphens, and underscores.' }
+  }
   if (!email || !email.includes('@')) {
     return { error: 'Please enter a valid email address.' }
   }
@@ -20,19 +30,23 @@ export async function signUp(
     return { error: 'Password must be under 72 characters.' }
   }
 
-  // IMPORTANT: createClient() is called inside the action, never at module
-  // level. Module-level clients share auth context across requests.
   const supabase = await createClient()
+
+  const { count } = await supabase
+    .from('user_profiles')
+    .select('id', { count: 'exact', head: true })
+    .ilike('username', username)
+
+  if (count && count > 0) {
+    return { error: 'This username is already taken.' }
+  }
 
   const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      // emailRedirectTo must match the allow-list in Supabase Auth →
-      // URL Configuration → Redirect URLs.
-      //
-      // NEXT_PUBLIC_SITE_URL must be set in .env.local (task 2-02-11).
       emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+      data: { username },
     },
   })
 

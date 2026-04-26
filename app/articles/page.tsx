@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { sanityFetch } from '@/lib/sanity/fetch'
 import { ARTICLES_QUERY, ARTICLES_COUNT_QUERY, CATEGORIES_QUERY } from '@/lib/sanity/queries'
+import type { SanityArticle, SanityCategory } from '@/lib/sanity/types'
 import { ArticleCard } from '@/components/content/article-card'
 import { CategoryFilter } from '@/components/content/category-filter'
 import { PaginationControls } from '@/components/content/pagination-controls'
@@ -24,9 +25,9 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
   const categoryParam = category ?? null
 
   const [articles, total, categories] = await Promise.all([
-    sanityFetch<Article[]>({ query: ARTICLES_QUERY, params: { start, end, category: categoryParam }, tags: ['article', 'category'] }),
+    sanityFetch<SanityArticle[]>({ query: ARTICLES_QUERY, params: { start, end, category: categoryParam }, tags: ['article', 'category'] }),
     sanityFetch<number>({ query: ARTICLES_COUNT_QUERY, params: { category: categoryParam }, tags: ['article', 'category'] }),
-    sanityFetch<Category[]>({ query: CATEGORIES_QUERY, tags: ['category'] }),
+    sanityFetch<SanityCategory[]>({ query: CATEGORIES_QUERY, tags: ['category'] }),
   ])
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE))
@@ -53,9 +54,3 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
   )
 }
 
-interface Article {
-  _id: string; title: string; slug: string; publishedAt: string; excerpt?: string
-  coverImage?: { asset?: { url: string }; alt?: string; crop?: unknown; hotspot?: unknown }
-  category?: { title: string; slug: string }; author?: { name: string; credential?: string }; tags?: string[]
-}
-interface Category { title: string; slug: string }

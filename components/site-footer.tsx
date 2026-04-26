@@ -22,7 +22,9 @@ export function SiteFooter() {
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-[#6b6b6b] mb-3">About</h3>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/about" className="text-[#1a1a1a] hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/community-guidelines" className="text-[#1a1a1a] hover:text-primary transition-colors">Community Guidelines</Link></li>
+              <li><a href="mailto:hello@clinicaltocode.com" className="text-[#1a1a1a] hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
