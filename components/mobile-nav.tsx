@@ -42,6 +42,13 @@ export function MobileNav({ isAuthenticated, profileHref }: MobileNavProps) {
               Forum
             </Link>
             <Link
+              href="/newsletter"
+              onClick={() => setOpen(false)}
+              className="text-sm text-[#6b6b6b] hover:text-[#1a1a1a] py-2 transition-colors"
+            >
+              Newsletter
+            </Link>
+            <Link
               href="/search"
               onClick={() => setOpen(false)}
               className="text-sm text-[#6b6b6b] hover:text-[#1a1a1a] py-2 transition-colors"

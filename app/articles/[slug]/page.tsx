@@ -9,6 +9,7 @@ import { ArticleBody } from '@/components/content/article-body'
 import { estimateReadTime } from '@/lib/read-time'
 import type { PortableTextBlock } from '@portabletext/react'
 import { NewsletterSignup } from '@/components/newsletter/newsletter-signup'
+import { ShareButtons } from '@/components/content/share-buttons'
 
 interface PageProps { params: Promise<{ slug: string }> }
 
@@ -86,6 +87,10 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           <span>&middot;</span>
           <span>{readTime} min read</span>
         </div>
+
+        <div className="mt-6 flex justify-center">
+          <ShareButtons url={`${siteUrl}/articles/${article.slug}`} title={article.title} />
+        </div>
       </div>
 
       {/* Cover image — full width */}
@@ -102,20 +107,37 @@ export default async function ArticleDetailPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Article body */}
-      {article.body && article.body.length > 0 && (
-        <ArticleBody value={article.body as PortableTextBlock[]} />
-      )}
+      {/* Article body — first half */}
+      {article.body && article.body.length > 0 && (() => {
+        const blocks = article.body as PortableTextBlock[]
+        const midpoint = Math.floor(blocks.length * 0.6)
+        const firstHalf = blocks.slice(0, midpoint)
+        const secondHalf = blocks.slice(midpoint)
+        return (
+          <>
+            <ArticleBody value={firstHalf} />
+            {blocks.length > 6 && (
+              <div className="max-w-[680px] mx-auto my-10">
+                <NewsletterSignup variant="inline" />
+              </div>
+            )}
+            <ArticleBody value={secondHalf} />
+          </>
+        )
+      })()}
 
-      {/* Tags */}
+      {/* Tags + share */}
       {article.tags && article.tags.length > 0 && (
         <div className="max-w-[680px] mx-auto mt-12 pt-8 border-t border-[#e0dcd5]">
-          <div className="flex flex-wrap gap-2">
-            {article.tags.map(tag => (
-              <span key={tag} className="bg-[#f4f1ec] text-[#6b6b6b] text-xs font-medium px-3 py-1.5 rounded-full">
-                {tag}
-              </span>
-            ))}
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap gap-2">
+              {article.tags.map(tag => (
+                <span key={tag} className="bg-[#f4f1ec] text-[#6b6b6b] text-xs font-medium px-3 py-1.5 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <ShareButtons url={`${siteUrl}/articles/${article.slug}`} title={article.title} />
           </div>
         </div>
       )}

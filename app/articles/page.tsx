@@ -5,6 +5,7 @@ import type { SanityArticle, SanityCategory } from '@/lib/sanity/types'
 import { ArticleCard } from '@/components/content/article-card'
 import { CategoryFilter } from '@/components/content/category-filter'
 import { PaginationControls } from '@/components/content/pagination-controls'
+import { NewsletterSignup } from '@/components/newsletter/newsletter-signup'
 
 export const metadata: Metadata = {
   title: 'Articles',
@@ -50,6 +51,10 @@ export default async function ArticlesPage({ searchParams }: PageProps) {
       )}
 
       {totalPages > 1 && <PaginationControls currentPage={pageNumber} totalPages={totalPages} />}
+
+      <div className="mt-16 max-w-lg mx-auto">
+        <NewsletterSignup />
+      </div>
     </main>
   )
 }

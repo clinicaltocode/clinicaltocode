@@ -25,6 +25,9 @@ export async function SiteNav() {
           <Link href="/forum" className="text-sm text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors">
             Forum
           </Link>
+          <Link href="/newsletter" className="text-sm text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors">
+            Newsletter
+          </Link>
           <Link href="/search" className="text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors" aria-label="Search">
             <Search className="h-4 w-4" />
           </Link>

@@ -16,6 +16,7 @@ export function SiteFooter() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/articles" className="text-[#1a1a1a] hover:text-primary transition-colors">Articles</Link></li>
               <li><Link href="/forum" className="text-[#1a1a1a] hover:text-primary transition-colors">Forum</Link></li>
+              <li><Link href="/newsletter" className="text-[#1a1a1a] hover:text-primary transition-colors">Newsletter</Link></li>
               <li><Link href="/feed.xml" className="text-[#1a1a1a] hover:text-primary transition-colors">RSS Feed</Link></li>
             </ul>
           </div>

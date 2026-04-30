@@ -35,8 +35,8 @@ export async function POST(request: Request) {
         <p style="font-size: 16px; color: #666666; line-height: 1.6; margin-bottom: 24px;">
           Click the link below to confirm your subscription to Clinical to Code.
         </p>
-        <a href="${confirmUrl}" style="display: inline-block; background-color: #0066cc; color: #ffffff; font-size: 16px; font-weight: 600; padding: 12px 24px; border-radius: 6px; text-decoration: none;">
-          Confirm your subscription
+        <a href="${confirmUrl}" style="display: inline-block; background-color: #1a6847; color: #ffffff; font-size: 16px; font-weight: 600; padding: 12px 24px; border-radius: 6px; text-decoration: none;">
+          Confirm my subscription
         </a>
         <p style="font-size: 14px; color: #666666; margin-top: 24px;">
           If you didn't sign up, you can safely ignore this email.
