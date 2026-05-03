@@ -22,3 +22,15 @@ export function slugify(text: string): string {
 export function formatRelativeTime(date: Date | string): string {
   return formatDistanceToNow(new Date(date), { addSuffix: true })
 }
+
+export function makePreview(body: string, maxLen = 200): string {
+  const plain = body
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/#{1,6}\s+/g, '')
+    .trim()
+  if (plain.length <= maxLen) return plain
+  const cut = plain.lastIndexOf(' ', maxLen)
+  return plain.slice(0, cut > 0 ? cut : maxLen) + '…'
+}

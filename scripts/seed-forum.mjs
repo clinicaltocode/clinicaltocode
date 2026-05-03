@@ -30,6 +30,18 @@ function slugify(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
+function makePreview(body, maxLen = 200) {
+  const plain = body
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/#{1,6}\s+/g, '')
+    .trim()
+  if (plain.length <= maxLen) return plain
+  const cut = plain.lastIndexOf(' ', maxLen)
+  return plain.slice(0, cut > 0 ? cut : maxLen) + '…'
+}
+
 // ---------- Seed content per category ----------
 
 const seeds = {
@@ -248,7 +260,7 @@ async function seed() {
         .insert({
           title: thread.title,
           slug,
-          body_preview: thread.body.slice(0, 200),
+          body_preview: makePreview(thread.body),
           category_id: categoryId,
           author_id: null,
           is_article_thread: false,

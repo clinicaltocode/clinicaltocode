@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: ThreadPageProps) {
   const { threadSlug } = await params
   const result = await getThreadWithPosts(threadSlug)
   return {
-    title: result ? `${result.thread.title} | Forum | Clinical to Code` : 'Forum | Clinical to Code',
+    title: result ? `${result.thread.title} | Forum` : 'Forum',
   }
 }
 

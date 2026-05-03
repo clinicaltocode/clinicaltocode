@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[#e0dcd5] mt-24 pt-12 pb-8 bg-[#faf9f7]">
+    <footer className="border-t border-[#e0dcd5] pt-12 pb-8 bg-[#faf9f7]">
       <div className="mx-auto px-6 max-w-[1200px]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div>

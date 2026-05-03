@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: CategoryPageProps) {
   const categories = await getCategories()
   const category = categories.find((c) => c.slug === categorySlug)
   return {
-    title: category ? `${category.title} | Forum | Clinical to Code` : 'Forum | Clinical to Code',
+    title: category ? `${category.title} | Forum` : 'Forum',
   }
 }
 
