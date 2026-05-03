@@ -6,7 +6,7 @@ import { GuidelinesBanner } from '@/components/forum/guidelines-banner'
 export const dynamic = 'force-dynamic'
 
 export const metadata = {
-  title: 'Forum | Clinical to Code',
+  title: 'Forum',
   description: 'Discuss clinical informatics, EHR workflows, nursing, pharmacy, and physician perspectives.',
 }
 

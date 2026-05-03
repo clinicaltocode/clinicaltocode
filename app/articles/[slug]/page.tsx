@@ -155,7 +155,11 @@ export default async function ArticleDetailPage({ params }: PageProps) {
                 className="rounded-full shrink-0"
               />
             ) : (
-              <div className="h-12 w-12 rounded-full bg-[#f4f1ec] shrink-0" />
+              <div className="h-12 w-12 rounded-full bg-[#e8e3dc] shrink-0 flex items-center justify-center">
+                <span className="text-sm font-semibold text-[#6b6b6b]">
+                  {article.author.name.split(' ').map((n: string) => n[0]).slice(0, 2).join('')}
+                </span>
+              </div>
             )}
             <div>
               <p className="font-serif font-bold text-[#1a1a1a]">

@@ -2,7 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-import { slugify } from './utils'
+import { slugify, makePreview } from './utils'
 
 /**
  * Create a new forum thread.
@@ -43,7 +43,7 @@ export async function createThread(formData: FormData) {
     .from('forum_threads')
     .insert({
       title,
-      body_preview: body.slice(0, 200),
+      body_preview: makePreview(body),
       slug,
       category_id: categoryId,
       author_id: user.id,
