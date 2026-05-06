@@ -10,6 +10,7 @@ interface Article {
   title: string
   category?: { title: string }
   author?: { name: string; credential?: string }
+  coverImage?: { asset?: { url: string } }
 }
 
 export default async function OGImage({ params }: { params: Promise<{ slug: string }> }) {
@@ -31,6 +32,22 @@ export default async function OGImage({ params }: { params: Promise<{ slug: stri
     )
   }
 
+  // If the article has a cover image, use it directly as the OG image
+  const coverImageUrl = article.coverImage?.asset?.url
+  if (coverImageUrl) {
+    const imageUrl = `${coverImageUrl}?w=1200&h=630&fit=crop&auto=format`
+    return new ImageResponse(
+      (
+        <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={imageUrl} alt={article.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </div>
+      ),
+      { ...size }
+    )
+  }
+
+  // Fallback: branded text card for articles without a cover image
   const authorText = article.author
     ? article.author.credential
       ? `${article.author.name}, ${article.author.credential}`

@@ -22,7 +22,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params
   const article = await sanityFetch<SanityArticle | null>({ query: ARTICLE_BY_SLUG_QUERY, params: { slug }, tags: [`article:${slug}`, 'article'] })
   if (!article) return { title: 'Article not found' }
-  return { title: article.title, description: article.excerpt ?? undefined }
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://clinicaltocode.com'
+  const articleUrl = `${siteUrl}/articles/${slug}`
+  const ogImage = article.coverImage?.asset?.url
+    ? `${article.coverImage.asset.url}?w=1200&h=630&fit=crop&auto=format`
+    : undefined
+
+  return {
+    title: article.title,
+    description: article.excerpt ?? undefined,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt ?? undefined,
+      url: articleUrl,
+      siteName: 'Clinical to Code',
+      type: 'article',
+      publishedTime: article.publishedAt,
+      authors: article.author?.name ? [article.author.name] : undefined,
+      ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }] }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt ?? undefined,
+      ...(ogImage && { images: [ogImage] }),
+    },
+  }
 }
 
 export default async function ArticleDetailPage({ params }: PageProps) {
